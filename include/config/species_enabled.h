@@ -13,8 +13,8 @@
 #define P_GEN_5_POKEMON                  TRUE // Generation 5 Pokémon (BW, B2W2)
 #define P_GEN_6_POKEMON                  TRUE // Generation 6 Pokémon (XY, ORAS)
 #define P_GEN_7_POKEMON                  TRUE // Generation 7 Pokémon (SM, USUM, LGPE)
-#define P_GEN_8_POKEMON                  TRUE // Generation 8 Pokémon (SwSh, BDSP, LA)
-#define P_GEN_9_POKEMON                  TRUE // Generation 9 Pokémon (SV)
+#define P_GEN_8_POKEMON                  FALSE // Generation 8 Pokémon (SwSh, BDSP, LA) - Disabled for base ROM size and Gen 7 focus
+#define P_GEN_9_POKEMON                  FALSE // Generation 9 Pokémon (SV) - Disabled for base ROM size and Gen 7 focus
 
 // Setting this to TRUE will add the new evolutions to the Regional Dex.
 #define P_NEW_EVOS_IN_REGIONAL_DEX       TRUE
@@ -23,10 +23,10 @@
 #define P_MEGA_EVOLUTIONS                TRUE
 #define P_PRIMAL_REVERSIONS              TRUE // Groudon and Kyogre only.
 #define P_ULTRA_BURST_FORMS              TRUE // Ultra Necrozma only.
-#define P_GIGANTAMAX_FORMS               TRUE
-#define P_TERA_FORMS                     TRUE
+#define P_GIGANTAMAX_FORMS               FALSE // Disabled - Gen 8 content
+#define P_TERA_FORMS                     FALSE // Disabled - Gen 9 content
 
-#define P_GEN_9_MEGA_EVOLUTIONS          P_MEGA_EVOLUTIONS // Mega Evolutions introduced in Z-A and its DLC
+#define P_GEN_9_MEGA_EVOLUTIONS          FALSE // Mega Evolutions introduced in Z-A and its DLC - Disabled
 
 // Fusion forms
 #define P_FUSION_FORMS                   TRUE
@@ -34,9 +34,9 @@
 // Regional Forms. Includes Regional Form evolutions, like Sirfetch'd.
 #define P_REGIONAL_FORMS                 TRUE
 #define P_ALOLAN_FORMS                   P_REGIONAL_FORMS
-#define P_GALARIAN_FORMS                 P_REGIONAL_FORMS
-#define P_HISUIAN_FORMS                  P_REGIONAL_FORMS
-#define P_PALDEAN_FORMS                  P_REGIONAL_FORMS
+#define P_GALARIAN_FORMS                 FALSE // Gen 8 - Disabled
+#define P_HISUIAN_FORMS                  FALSE // Gen 8 - Disabled
+#define P_PALDEAN_FORMS                  FALSE // Gen 9 - Disabled
 
 // Big groups of forms that aren't always desired when choosing families.
 #define P_PIKACHU_EXTRA_FORMS            TRUE
@@ -51,8 +51,8 @@
 //#define P_GEN_5_CROSS_EVOS             // Gen 5 didn't introduce any cross-gen evos.
 #define P_GEN_6_CROSS_EVOS               P_CROSS_GENERATION_EVOS // Just Sylveon.
 //#define P_GEN_7_CROSS_EVOS             // Alolan evolutions handled by P_ALOLAN_FORMS.
-#define P_GEN_8_CROSS_EVOS               P_CROSS_GENERATION_EVOS // Regional evolutions handled by P_GALARIAN_FORMS and P_HISUIAN_FORMS.
-#define P_GEN_9_CROSS_EVOS               P_CROSS_GENERATION_EVOS // Clodsire handled by P_PALDEAN_FORMS.
+#define P_GEN_8_CROSS_EVOS               FALSE // Regional evolutions handled by P_GALARIAN_FORMS and P_HISUIAN_FORMS. - Disabled
+#define P_GEN_9_CROSS_EVOS               FALSE // Clodsire handled by P_PALDEAN_FORMS. - Disabled
 
 // To disable specific families, replace P_GEN_x_POKEMON with FALSE.
 #define P_FAMILY_BULBASAUR               P_GEN_1_POKEMON
@@ -480,127 +480,8 @@
 #define P_FAMILY_ZERAORA                 P_GEN_7_POKEMON
 #define P_FAMILY_MELTAN                  P_GEN_7_POKEMON
 
-#define P_FAMILY_GROOKEY                 P_GEN_8_POKEMON
-#define P_FAMILY_SCORBUNNY               P_GEN_8_POKEMON
-#define P_FAMILY_SOBBLE                  P_GEN_8_POKEMON
-#define P_FAMILY_SKWOVET                 P_GEN_8_POKEMON
-#define P_FAMILY_ROOKIDEE                P_GEN_8_POKEMON
-#define P_FAMILY_BLIPBUG                 P_GEN_8_POKEMON
-#define P_FAMILY_NICKIT                  P_GEN_8_POKEMON
-#define P_FAMILY_GOSSIFLEUR              P_GEN_8_POKEMON
-#define P_FAMILY_WOOLOO                  P_GEN_8_POKEMON
-#define P_FAMILY_CHEWTLE                 P_GEN_8_POKEMON
-#define P_FAMILY_YAMPER                  P_GEN_8_POKEMON
-#define P_FAMILY_ROLYCOLY                P_GEN_8_POKEMON
-#define P_FAMILY_APPLIN                  P_GEN_8_POKEMON
-#define P_FAMILY_SILICOBRA               P_GEN_8_POKEMON
-#define P_FAMILY_CRAMORANT               P_GEN_8_POKEMON
-#define P_FAMILY_ARROKUDA                P_GEN_8_POKEMON
-#define P_FAMILY_TOXEL                   P_GEN_8_POKEMON
-#define P_FAMILY_SIZZLIPEDE              P_GEN_8_POKEMON
-#define P_FAMILY_CLOBBOPUS               P_GEN_8_POKEMON
-#define P_FAMILY_SINISTEA                P_GEN_8_POKEMON
-#define P_FAMILY_HATENNA                 P_GEN_8_POKEMON
-#define P_FAMILY_IMPIDIMP                P_GEN_8_POKEMON
-#define P_FAMILY_MILCERY                 P_GEN_8_POKEMON
-#define P_FAMILY_FALINKS                 P_GEN_8_POKEMON
-#define P_FAMILY_PINCURCHIN              P_GEN_8_POKEMON
-#define P_FAMILY_SNOM                    P_GEN_8_POKEMON
-#define P_FAMILY_STONJOURNER             P_GEN_8_POKEMON
-#define P_FAMILY_EISCUE                  P_GEN_8_POKEMON
-#define P_FAMILY_INDEEDEE                P_GEN_8_POKEMON
-#define P_FAMILY_MORPEKO                 P_GEN_8_POKEMON
-#define P_FAMILY_CUFANT                  P_GEN_8_POKEMON
-#define P_FAMILY_DRACOZOLT               P_GEN_8_POKEMON
-#define P_FAMILY_ARCTOZOLT               P_GEN_8_POKEMON
-#define P_FAMILY_DRACOVISH               P_GEN_8_POKEMON
-#define P_FAMILY_ARCTOVISH               P_GEN_8_POKEMON
-#define P_FAMILY_DURALUDON               P_GEN_8_POKEMON
-#define P_FAMILY_DREEPY                  P_GEN_8_POKEMON
-#define P_FAMILY_ZACIAN                  P_GEN_8_POKEMON
-#define P_FAMILY_ZAMAZENTA               P_GEN_8_POKEMON
-#define P_FAMILY_ETERNATUS               P_GEN_8_POKEMON
-#define P_FAMILY_KUBFU                   P_GEN_8_POKEMON
-#define P_FAMILY_ZARUDE                  P_GEN_8_POKEMON
-#define P_FAMILY_REGIELEKI               P_GEN_8_POKEMON
-#define P_FAMILY_REGIDRAGO               P_GEN_8_POKEMON
-#define P_FAMILY_GLASTRIER               P_GEN_8_POKEMON
-#define P_FAMILY_SPECTRIER               P_GEN_8_POKEMON
-#define P_FAMILY_CALYREX                 P_GEN_8_POKEMON
-#define P_FAMILY_ENAMORUS                P_GEN_8_POKEMON
-
-#define P_FAMILY_SPRIGATITO              P_GEN_9_POKEMON
-#define P_FAMILY_FUECOCO                 P_GEN_9_POKEMON
-#define P_FAMILY_QUAXLY                  P_GEN_9_POKEMON
-#define P_FAMILY_LECHONK                 P_GEN_9_POKEMON
-#define P_FAMILY_TAROUNTULA              P_GEN_9_POKEMON
-#define P_FAMILY_NYMBLE                  P_GEN_9_POKEMON
-#define P_FAMILY_PAWMI                   P_GEN_9_POKEMON
-#define P_FAMILY_TANDEMAUS               P_GEN_9_POKEMON
-#define P_FAMILY_FIDOUGH                 P_GEN_9_POKEMON
-#define P_FAMILY_SMOLIV                  P_GEN_9_POKEMON
-#define P_FAMILY_SQUAWKABILLY            P_GEN_9_POKEMON
-#define P_FAMILY_NACLI                   P_GEN_9_POKEMON
-#define P_FAMILY_CHARCADET               P_GEN_9_POKEMON
-#define P_FAMILY_TADBULB                 P_GEN_9_POKEMON
-#define P_FAMILY_WATTREL                 P_GEN_9_POKEMON
-#define P_FAMILY_MASCHIFF                P_GEN_9_POKEMON
-#define P_FAMILY_SHROODLE                P_GEN_9_POKEMON
-#define P_FAMILY_BRAMBLIN                P_GEN_9_POKEMON
-#define P_FAMILY_TOEDSCOOL               P_GEN_9_POKEMON
-#define P_FAMILY_KLAWF                   P_GEN_9_POKEMON
-#define P_FAMILY_CAPSAKID                P_GEN_9_POKEMON
-#define P_FAMILY_RELLOR                  P_GEN_9_POKEMON
-#define P_FAMILY_FLITTLE                 P_GEN_9_POKEMON
-#define P_FAMILY_TINKATINK               P_GEN_9_POKEMON
-#define P_FAMILY_WIGLETT                 P_GEN_9_POKEMON
-#define P_FAMILY_BOMBIRDIER              P_GEN_9_POKEMON
-#define P_FAMILY_FINIZEN                 P_GEN_9_POKEMON
-#define P_FAMILY_VAROOM                  P_GEN_9_POKEMON
-#define P_FAMILY_CYCLIZAR                P_GEN_9_POKEMON
-#define P_FAMILY_ORTHWORM                P_GEN_9_POKEMON
-#define P_FAMILY_GLIMMET                 P_GEN_9_POKEMON
-#define P_FAMILY_GREAVARD                P_GEN_9_POKEMON
-#define P_FAMILY_FLAMIGO                 P_GEN_9_POKEMON
-#define P_FAMILY_CETODDLE                P_GEN_9_POKEMON
-#define P_FAMILY_VELUZA                  P_GEN_9_POKEMON
-#define P_FAMILY_DONDOZO                 P_GEN_9_POKEMON
-#define P_FAMILY_TATSUGIRI               P_GEN_9_POKEMON
-#define P_FAMILY_GREAT_TUSK              P_GEN_9_POKEMON
-#define P_FAMILY_SCREAM_TAIL             P_GEN_9_POKEMON
-#define P_FAMILY_BRUTE_BONNET            P_GEN_9_POKEMON
-#define P_FAMILY_FLUTTER_MANE            P_GEN_9_POKEMON
-#define P_FAMILY_SLITHER_WING            P_GEN_9_POKEMON
-#define P_FAMILY_SANDY_SHOCKS            P_GEN_9_POKEMON
-#define P_FAMILY_IRON_TREADS             P_GEN_9_POKEMON
-#define P_FAMILY_IRON_BUNDLE             P_GEN_9_POKEMON
-#define P_FAMILY_IRON_HANDS              P_GEN_9_POKEMON
-#define P_FAMILY_IRON_JUGULIS            P_GEN_9_POKEMON
-#define P_FAMILY_IRON_MOTH               P_GEN_9_POKEMON
-#define P_FAMILY_IRON_THORNS             P_GEN_9_POKEMON
-#define P_FAMILY_FRIGIBAX                P_GEN_9_POKEMON
-#define P_FAMILY_GIMMIGHOUL              P_GEN_9_POKEMON
-#define P_FAMILY_WO_CHIEN                P_GEN_9_POKEMON
-#define P_FAMILY_CHIEN_PAO               P_GEN_9_POKEMON
-#define P_FAMILY_TING_LU                 P_GEN_9_POKEMON
-#define P_FAMILY_CHI_YU                  P_GEN_9_POKEMON
-#define P_FAMILY_ROARING_MOON            P_GEN_9_POKEMON
-#define P_FAMILY_IRON_VALIANT            P_GEN_9_POKEMON
-#define P_FAMILY_KORAIDON                P_GEN_9_POKEMON
-#define P_FAMILY_MIRAIDON                P_GEN_9_POKEMON
-#define P_FAMILY_WALKING_WAKE            P_GEN_9_POKEMON
-#define P_FAMILY_IRON_LEAVES             P_GEN_9_POKEMON
-#define P_FAMILY_POLTCHAGEIST            P_GEN_9_POKEMON
-#define P_FAMILY_SINISTCHA               P_GEN_9_POKEMON
-#define P_FAMILY_OKIDOGI                 P_GEN_9_POKEMON
-#define P_FAMILY_MUNKIDORI               P_GEN_9_POKEMON
-#define P_FAMILY_FEZANDIPITI             P_GEN_9_POKEMON
-#define P_FAMILY_OGERPON                 P_GEN_9_POKEMON
-#define P_FAMILY_GOUGING_FIRE            P_GEN_9_POKEMON
-#define P_FAMILY_RAGING_BOLT             P_GEN_9_POKEMON
-#define P_FAMILY_IRON_BOULDER            P_GEN_9_POKEMON
-#define P_FAMILY_IRON_CROWN              P_GEN_9_POKEMON
-#define P_FAMILY_TERAPAGOS               P_GEN_9_POKEMON
-#define P_FAMILY_PECHARUNT               P_GEN_9_POKEMON
+// Gen 8 and Gen 9 families are disabled via P_GEN_8_POKEMON and P_GEN_9_POKEMON = FALSE above.
+// Their individual P_FAMILY_ defines are left as-is for easier re-enabling later if needed,
+// but they will not be compiled into the ROM.
 
 #endif // GUARD_CONFIG_SPECIES_ENABLED_H

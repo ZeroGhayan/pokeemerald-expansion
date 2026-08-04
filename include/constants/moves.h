@@ -907,7 +907,58 @@ enum __attribute__((packed)) Move
 
     // Add any custom moves here, not further down!
 
-    MOVES_COUNT = MOVES_COUNT_GEN9,
+    // ========== Custom Shadow moves (Colosseum / XD) ==========
+    MOVE_SHADOW_BLITZ,
+    MOVE_SHADOW_RUSH,
+    MOVE_SHADOW_BREAK,
+    MOVE_SHADOW_END,
+    MOVE_SHADOW_WAVE,
+    MOVE_SHADOW_RAVE,
+    MOVE_SHADOW_STORM,
+    MOVE_SHADOW_BLAST,
+    MOVE_SHADOW_BOLT,
+    MOVE_SHADOW_HALF,
+    MOVE_SHADOW_SKY,
+    MOVE_SHADOW_SHED,
+    MOVE_SHADOW_MIST,
+    MOVE_SHADOW_PANIC,
+    MOVE_SHADOW_DOWN,
+    MOVE_SHADOW_HOLD,
+    // ========== Angel moves ==========
+    MOVE_THOUSAND_HANDS,      // Physical 200 / Acc 10, crash on miss
+    MOVE_SERAPH_SONG,         // Sleep + Confusion
+    MOVE_HOLY_BEAM,
+    MOVE_DIVINE_JUDGMENT,
+    MOVE_CELESTIAL_FORCE,
+    MOVE_SACRED_SEAL,
+    MOVE_ANGELIC_GRACE,
+
+    // ========== Demon moves ==========
+    MOVE_INFINITY_COCOON,     // Substitute + damage if broken same turn
+    MOVE_HELLFIRE,
+    MOVE_ABYSSAL_CLAW,
+    MOVE_CURSED_HOWL,
+    MOVE_DEMONIC_PACT,
+    MOVE_SOUL_DRAIN,
+    MOVE_INFERNAL_GATE,
+
+    // ========== Aurum moves ==========
+    MOVE_GOLDEN_BURST,        // Like Skull Bash
+    MOVE_MIDAS_TOUCH,
+    MOVE_AURIC_BLADE,
+    MOVE_GOLD_RUSH,
+    MOVE_TREASURE_TRAP,
+    MOVE_ROYAL_GUARD,
+    MOVE_PROSPERITY,
+
+    // ========== Crystal moves ==========
+    MOVE_DIAMOND_DUST,        // 100/100
+    MOVE_CRIOGENESIS,         // OHKO 75 (100 se for Crystal)
+    MOVE_PRISM_SHOT,
+    MOVE_CRYSTAL_LANCE,
+    MOVE_REFRACT,
+
+    MOVES_COUNT,
 
     // Z Moves
     FIRST_Z_MOVE = MOVES_COUNT,

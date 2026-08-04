@@ -13,28 +13,35 @@
 
 const uq4_12_t gTypeEffectivenessTable[NUMBER_OF_MON_TYPES][NUMBER_OF_MON_TYPES] =
 {//                   Defender -->
- //  Attacker           None   Normal Fighting Flying  Poison  Ground   Rock    Bug     Ghost   Steel  Mystery  Fire   Water   Grass  Electric Psychic   Ice   Dragon   Dark   Fairy   Stellar
-    [TYPE_NONE]     = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
-    [TYPE_NORMAL]   = {______, ______, ______, ______, ______, ______, X(0.5), ______, X(0.0), X(0.5), ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
-    [TYPE_FIGHTING] = {______, X(2.0), ______, X(0.5), X(0.5), ______, X(2.0), X(0.5), X(0.0), X(2.0), ______, ______, ______, ______, ______, X(0.5), X(2.0), ______, X(2.0), X(0.5), ______},
-    [TYPE_FLYING]   = {______, ______, X(2.0), ______, ______, ______, X(0.5), X(2.0), ______, X(0.5), ______, ______, ______, X(2.0), X(0.5), ______, ______, ______, ______, ______, ______},
-    [TYPE_POISON]   = {______, ______, ______, ______, X(0.5), X(0.5), X(0.5), BUG_RS, X(0.5), X(0.0), ______, ______, ______, X(2.0), ______, ______, ______, ______, ______, X(2.0), ______},
-    [TYPE_GROUND]   = {______, ______, ______, X(0.0), X(2.0), ______, X(2.0), X(0.5), ______, X(2.0), ______, X(2.0), ______, X(0.5), X(2.0), ______, ______, ______, ______, ______, ______},
-    [TYPE_ROCK]     = {______, ______, X(0.5), X(2.0), ______, X(0.5), ______, X(2.0), ______, X(0.5), ______, X(2.0), ______, ______, ______, ______, X(2.0), ______, ______, ______, ______},
-    [TYPE_BUG]      = {______, ______, X(0.5), X(0.5), PSN_RS, ______, ______, ______, X(0.5), X(0.5), ______, X(0.5), ______, X(2.0), ______, X(2.0), ______, ______, X(2.0), X(0.5), ______},
-    [TYPE_GHOST]    = {______, X(0.0), ______, ______, ______, ______, ______, ______, X(2.0), STL_RS, ______, ______, ______, ______, ______, PSY_RS, ______, ______, X(0.5), ______, ______},
-    [TYPE_STEEL]    = {______, ______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), ______, X(0.5), X(0.5), ______, X(0.5), ______, X(2.0), ______, ______, X(2.0), ______},
-    [TYPE_MYSTERY]  = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
-    [TYPE_FIRE]     = {______, ______, ______, ______, ______, ______, X(0.5), X(2.0), ______, X(2.0), ______, X(0.5), X(0.5), X(2.0), ______, ______, X(2.0), X(0.5), ______, ______, ______},
-    [TYPE_WATER]    = {______, ______, ______, ______, ______, X(2.0), X(2.0), ______, ______, ______, ______, X(2.0), X(0.5), X(0.5), ______, ______, ______, X(0.5), ______, ______, ______},
-    [TYPE_GRASS]    = {______, ______, ______, X(0.5), X(0.5), X(2.0), X(2.0), X(0.5), ______, X(0.5), ______, X(0.5), X(2.0), X(0.5), ______, ______, ______, X(0.5), ______, ______, ______},
-    [TYPE_ELECTRIC] = {______, ______, ______, X(2.0), ______, X(0.0), ______, ______, ______, ______, ______, ______, X(2.0), X(0.5), X(0.5), ______, ______, X(0.5), ______, ______, ______},
-    [TYPE_PSYCHIC]  = {______, ______, X(2.0), ______, X(2.0), ______, ______, ______, ______, X(0.5), ______, ______, ______, ______, ______, X(0.5), ______, ______, X(0.0), ______, ______},
-    [TYPE_ICE]      = {______, ______, ______, X(2.0), ______, X(2.0), ______, ______, ______, X(0.5), ______, FIR_RS, X(0.5), X(2.0), ______, ______, X(0.5), X(2.0), ______, ______, ______},
-    [TYPE_DRAGON]   = {______, ______, ______, ______, ______, ______, ______, ______, ______, X(0.5), ______, ______, ______, ______, ______, ______, ______, X(2.0), ______, X(0.0), ______},
-    [TYPE_DARK]     = {______, ______, X(0.5), ______, ______, ______, ______, ______, X(2.0), STL_RS, ______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), X(0.5), ______},
-    [TYPE_FAIRY]    = {______, ______, X(2.0), ______, X(0.5), ______, ______, ______, ______, X(0.5), ______, X(0.5), ______, ______, ______, ______, ______, X(2.0), X(2.0), ______, ______},
-    [TYPE_STELLAR]  = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+ //  Attacker           None   Normal Fighting Flying  Poison  Ground   Rock    Bug     Ghost   Steel  Mystery  Fire   Water   Grass  Electric Psychic   Ice   Dragon   Dark   Fairy  Shadow  Light  Chaos  Angel  Demon  Aurum Crystal
+    [TYPE_NONE]     = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_NORMAL]   = {______, ______, ______, ______, ______, ______, X(0.5), ______, X(0.0), X(0.5), ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_FIGHTING] = {______, X(2.0), ______, X(0.5), X(0.5), ______, X(2.0), X(0.5), X(0.0), X(2.0), ______, ______, ______, ______, ______, X(0.5), X(2.0), ______, X(2.0), X(0.5), ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_FLYING]   = {______, ______, X(2.0), ______, ______, ______, X(0.5), X(2.0), ______, X(0.5), ______, ______, ______, X(2.0), X(0.5), ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_POISON]   = {______, ______, ______, ______, X(0.5), X(0.5), X(0.5), BUG_RS, X(0.5), X(0.0), ______, ______, ______, X(2.0), ______, ______, ______, ______, ______, X(2.0), ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_GROUND]   = {______, ______, ______, X(0.0), X(2.0), ______, X(2.0), X(0.5), ______, X(2.0), ______, X(2.0), ______, X(0.5), X(2.0), ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_ROCK]     = {______, ______, X(0.5), X(2.0), ______, X(0.5), ______, X(2.0), ______, X(0.5), ______, X(2.0), ______, ______, ______, ______, X(2.0), ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_BUG]      = {______, ______, X(0.5), X(0.5), PSN_RS, ______, ______, ______, X(0.5), X(0.5), ______, X(0.5), ______, X(2.0), ______, X(2.0), ______, ______, X(2.0), X(0.5), ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_GHOST]    = {______, X(0.0), ______, ______, ______, ______, ______, ______, X(2.0), STL_RS, ______, ______, ______, ______, ______, PSY_RS, ______, ______, X(0.5), ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_STEEL]    = {______, ______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), ______, X(0.5), X(0.5), ______, X(0.5), ______, X(2.0), ______, ______, X(2.0), ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_MYSTERY]  = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_FIRE]     = {______, ______, ______, ______, ______, ______, X(0.5), X(2.0), ______, X(2.0), ______, X(0.5), X(0.5), X(2.0), ______, ______, X(2.0), X(0.5), ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_WATER]    = {______, ______, ______, ______, ______, X(2.0), X(2.0), ______, ______, ______, ______, X(2.0), X(0.5), X(0.5), ______, ______, ______, X(0.5), ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_GRASS]    = {______, ______, ______, X(0.5), X(0.5), X(2.0), X(2.0), X(0.5), ______, X(0.5), ______, X(0.5), X(2.0), X(0.5), ______, ______, ______, X(0.5), ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_ELECTRIC] = {______, ______, ______, X(2.0), ______, X(0.0), ______, ______, ______, ______, ______, ______, X(2.0), X(0.5), X(0.5), ______, ______, X(0.5), ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_PSYCHIC]  = {______, ______, X(2.0), ______, X(2.0), ______, ______, ______, ______, X(0.5), ______, ______, ______, ______, ______, X(0.5), ______, ______, X(0.0), ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_ICE]      = {______, ______, ______, X(2.0), ______, X(2.0), ______, ______, ______, X(0.5), ______, FIR_RS, X(0.5), X(2.0), ______, ______, X(0.5), X(2.0), ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_DRAGON]   = {______, ______, ______, ______, ______, ______, ______, ______, ______, X(0.5), ______, ______, ______, ______, ______, ______, ______, X(2.0), ______, X(0.0), ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_DARK]     = {______, ______, X(0.5), ______, ______, ______, ______, ______, X(2.0), STL_RS, ______, ______, ______, ______, ______, X(2.0), ______, ______, X(0.5), X(0.5), ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_FAIRY]    = {______, ______, X(2.0), ______, X(0.5), ______, ______, ______, ______, X(0.5), ______, X(0.5), ______, ______, ______, ______, ______, X(2.0), X(2.0), ______, ______, ______, ______, ______, ______, ______, ______},
+    // New types - temporary 1.0 (will be filled with real chart in Etapa 4)
+    [TYPE_SHADOW]   = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_LIGHT]    = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_CHAOS]    = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_ANGEL]    = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_DEMON]    = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_AURUM]    = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
+    [TYPE_CRYSTAL]  = {______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______, ______},
 };
 
 #undef ______
@@ -75,12 +82,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = FALSE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = FALSE,
-        //.enhanceItem = ITEM_SILK_SCARF,
-        //.berry = ITEM_CHILAN_BERRY,
-        //.gem = ITEM_NORMAL_GEM,
-        //.zCrystal = ITEM_NORMALIUM_Z,
-        //.teraShard = ITEM_NORMAL_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_NORMAL,
     },
     [TYPE_FIGHTING] =
     {
@@ -95,14 +96,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = FALSE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_BLACK_BELT,
-        //.berry = ITEM_CHOPLE_BERRY,
-        //.gem = ITEM_FIGHTING_GEM,
-        //.zCrystal = ITEM_FIGHTINIUM_Z,
-        //.plate = ITEM_FIST_PLATE,
-        //.memory = ITEM_FIGHTING_MEMORY,
-        //.teraShard = ITEM_FIGHTING_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_FIGHTING,
     },
     [TYPE_FLYING] =
     {
@@ -117,14 +110,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = FALSE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_SHARP_BEAK,
-        //.berry = ITEM_COBA_BERRY,
-        //.gem = ITEM_FLYING_GEM,
-        //.zCrystal = ITEM_FLYINIUM_Z,
-        //.plate = ITEM_SKY_PLATE,
-        //.memory = ITEM_FLYING_MEMORY,
-        //.teraShard = ITEM_FLYING_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_FLYING,
     },
     [TYPE_POISON] =
     {
@@ -133,20 +118,12 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .palette = 14,
         .zMove = MOVE_ACID_DOWNPOUR,
         .maxMove = MOVE_MAX_OOZE,
-        .teraTypeRGBValue = RGB(26, 10, 25), // custom
+        .teraTypeRGBValue = RGB(26, 10, 25),
         .damageCategory = DAMAGE_CATEGORY_PHYSICAL,
         .paletteTMHM = gItemIconPalette_PoisonTMHM,
         .useSecondTypeIconPalette = FALSE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_POISON_BARB,
-        //.berry = ITEM_KEBIA_BERRY,
-        //.gem = ITEM_POISON_GEM,
-        //.zCrystal = ITEM_POISONIUM_Z,
-        //.plate = ITEM_TOXIC_PLATE,
-        //.memory = ITEM_POISON_MEMORY,
-        //.teraShard = ITEM_POISON_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_POISON,
     },
     [TYPE_GROUND] =
     {
@@ -161,14 +138,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = FALSE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_SOFT_SAND,
-        //.berry = ITEM_SHUCA_BERRY,
-        //.gem = ITEM_GROUND_GEM,
-        //.zCrystal = ITEM_GROUNDIUM_Z,
-        //.plate = ITEM_EARTH_PLATE,
-        //.memory = ITEM_GROUND_MEMORY,
-        //.teraShard = ITEM_GROUND_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_GROUND,
     },
     [TYPE_ROCK] =
     {
@@ -177,20 +146,12 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .palette = 13,
         .zMove = MOVE_CONTINENTAL_CRUSH,
         .maxMove = MOVE_MAX_ROCKFALL,
-        .teraTypeRGBValue = RGB(18, 16, 8), // custom
+        .teraTypeRGBValue = RGB(18, 16, 8),
         .damageCategory = DAMAGE_CATEGORY_PHYSICAL,
         .paletteTMHM = gItemIconPalette_RockTMHM,
         .useSecondTypeIconPalette = FALSE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_HARD_STONE,
-        //.berry = ITEM_CHARTI_BERRY,
-        //.gem = ITEM_ROCK_GEM,
-        //.zCrystal = ITEM_ROCKIUM_Z,
-        //.plate = ITEM_STONE_PLATE,
-        //.memory = ITEM_ROCK_MEMORY,
-        //.teraShard = ITEM_ROCK_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_ROCK,
     },
     [TYPE_BUG] =
     {
@@ -205,14 +166,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = FALSE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_SILVER_POWDER,
-        //.berry = ITEM_TANGA_BERRY,
-        //.gem = ITEM_BUG_GEM,
-        //.zCrystal = ITEM_BUGINIUM_Z,
-        //.plate = ITEM_INSECT_PLATE,
-        //.memory = ITEM_BUG_MEMORY,
-        //.teraShard = ITEM_BUG_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_BUG,
     },
     [TYPE_GHOST] =
     {
@@ -227,14 +180,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = FALSE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_SPELL_TAG,
-        //.berry = ITEM_KASIB_BERRY,
-        //.gem = ITEM_GHOST_GEM,
-        //.zCrystal = ITEM_GHOSTIUM_Z,
-        //.plate = ITEM_SPOOKY_PLATE,
-        //.memory = ITEM_GHOST_MEMORY,
-        //.teraShard = ITEM_GHOST_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_GHOST,
     },
     [TYPE_STEEL] =
     {
@@ -249,14 +194,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = FALSE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_METAL_COAT,
-        //.berry = ITEM_BABIRI_BERRY,
-        //.gem = ITEM_STEEL_GEM,
-        //.zCrystal = ITEM_STEELIUM_Z,
-        //.plate = ITEM_IRON_PLATE,
-        //.memory = ITEM_STEEL_MEMORY,
-        //.teraShard = ITEM_STEEL_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_STEEL,
     },
     [TYPE_MYSTERY] =
     {
@@ -285,14 +222,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = TRUE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_CHARCOAL,
-        //.berry = ITEM_OCCA_BERRY,
-        //.gem = ITEM_FIRE_GEM,
-        //.zCrystal = ITEM_FIRIUM_Z,
-        //.plate = ITEM_FLAME_PLATE,
-        //.memory = ITEM_FIRE_MEMORY,
-        //.teraShard = ITEM_FIRE_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_FIRE,
     },
     [TYPE_WATER] =
     {
@@ -307,14 +236,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = TRUE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_MYSTIC_WATER,
-        //.berry = ITEM_PASSHO_BERRY,
-        //.gem = ITEM_WATER_GEM,
-        //.zCrystal = ITEM_WATERIUM_Z,
-        //.plate = ITEM_SPLASH_PLATE,
-        //.memory = ITEM_WATER_MEMORY,
-        //.teraShard = ITEM_WATER_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_WATER,
     },
     [TYPE_GRASS] =
     {
@@ -329,14 +250,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = TRUE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_MIRACLE_SEED,
-        //.berry = ITEM_RINDO_BERRY,
-        //.gem = ITEM_GRASS_GEM,
-        //.zCrystal = ITEM_GRASSIUM_Z,
-        //.plate = ITEM_MEADOW_PLATE,
-        //.memory = ITEM_GRASS_MEMORY,
-        //.teraShard = ITEM_GRASS_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_GRASS,
     },
     [TYPE_ELECTRIC] =
     {
@@ -351,14 +264,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = TRUE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_MAGNET,
-        //.berry = ITEM_WACAN_BERRY,
-        //.gem = ITEM_ELECTRIC_GEM,
-        //.zCrystal = ITEM_ELECTRIUM_Z,
-        //.plate = ITEM_ZAP_PLATE,
-        //.memory = ITEM_ELECTRIC_MEMORY,
-        //.teraShard = ITEM_ELECTRIC_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_ELECTRIC,
     },
     [TYPE_PSYCHIC] =
     {
@@ -373,14 +278,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = TRUE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_TWISTED_SPOON,
-        //.berry = ITEM_PAYAPA_BERRY,
-        //.gem = ITEM_PSYCHIC_GEM,
-        //.zCrystal = ITEM_PSYCHIUM_Z,
-        //.plate = ITEM_MIND_PLATE,
-        //.memory = ITEM_PSYCHIC_MEMORY,
-        //.teraShard = ITEM_PSYCHIC_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_PSYCHIC,
     },
     [TYPE_ICE] =
     {
@@ -395,14 +292,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = TRUE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_NEVER_MELT_ICE,
-        //.berry = ITEM_YACHE_BERRY,
-        //.gem = ITEM_ICE_GEM,
-        //.zCrystal = ITEM_ICIUM_Z,
-        //.plate = ITEM_ICICLE_PLATE,
-        //.memory = ITEM_ICE_MEMORY,
-        //.teraShard = ITEM_ICE_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_ICE,
     },
     [TYPE_DRAGON] =
     {
@@ -417,14 +306,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = TRUE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_DRAGON_FANG,
-        //.berry = ITEM_HABAN_BERRY,
-        //.gem = ITEM_DRAGON_GEM,
-        //.zCrystal = ITEM_DRAGONIUM_Z,
-        //.plate = ITEM_DRACO_PLATE,
-        //.memory = ITEM_DRAGON_MEMORY,
-        //.teraShard = ITEM_DRAGON_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_DRAGON,
     },
     [TYPE_DARK] =
     {
@@ -439,14 +320,6 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = TRUE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = TRUE,
-        //.enhanceItem = ITEM_BLACK_GLASSES,
-        //.berry = ITEM_COLBUR_BERRY,
-        //.gem = ITEM_DARK_GEM,
-        //.zCrystal = ITEM_DARKINIUM_Z,
-        //.plate = ITEM_DREAD_PLATE,
-        //.memory = ITEM_DARK_MEMORY,
-        //.teraShard = ITEM_DARK_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_DARK,
     },
     [TYPE_FAIRY] =
     {
@@ -461,28 +334,104 @@ const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES] =
         .useSecondTypeIconPalette = TRUE,
         .isSpecialCaseType = FALSE,
         .isHiddenPowerType = FALSE,
-        //.enhanceItem = ITEM_FAIRY_FEATHER,
-        //.berry = ITEM_ROSELI_BERRY,
-        //.gem = ITEM_FAIRY_GEM,
-        //.zCrystal = ITEM_FAIRIUM_Z,
-        //.plate = ITEM_PIXIE_PLATE,
-        //.memory = ITEM_FAIRY_MEMORY,
-        //.teraShard = ITEM_FAIRY_TERA_SHARD,
-        //.arceusForm = SPECIES_ARCEUS_FAIRY,
     },
-    [TYPE_STELLAR] =
+    // ========== NEW TYPES ==========
+    [TYPE_SHADOW] =
     {
-        .name = _("Stellar"),
-        .generic = _("a STELLAR move"),
-        .palette = 15,
-        .zMove = MOVE_BREAKNECK_BLITZ,
-        .maxMove = MOVE_MAX_STRIKE,
-        .teraTypeRGBValue = RGB(10, 18, 27),
+        .name = _("Shadow"),
+        .generic = _("a SHADOW move"),
+        .palette = 13,
+        .zMove = MOVE_BLACK_HOLE_ECLIPSE, // temporary
+        .maxMove = MOVE_MAX_DARKNESS,    // temporary
+        .teraTypeRGBValue = RGB(8, 4, 12),
         .damageCategory = DAMAGE_CATEGORY_SPECIAL,
-        .paletteTMHM = gItemIconPalette_NormalTMHM, // failsafe
-        .useSecondTypeIconPalette = FALSE,
-        .isSpecialCaseType = TRUE,
+        .paletteTMHM = gItemIconPalette_DarkTMHM, // temporary
+        .useSecondTypeIconPalette = TRUE,
+        .isSpecialCaseType = FALSE,
         .isHiddenPowerType = FALSE,
-        // .teraShard = ITEM_STELLAR_TERA_SHARD,
+    },
+    [TYPE_LIGHT] =
+    {
+        .name = _("Light"),
+        .generic = _("a LIGHT move"),
+        .palette = 14,
+        .zMove = MOVE_TWINKLE_TACKLE, // temporary
+        .maxMove = MOVE_MAX_STARFALL, // temporary
+        .teraTypeRGBValue = RGB(31, 31, 20),
+        .damageCategory = DAMAGE_CATEGORY_SPECIAL,
+        .paletteTMHM = gItemIconPalette_FairyTMHM, // temporary
+        .useSecondTypeIconPalette = TRUE,
+        .isSpecialCaseType = FALSE,
+        .isHiddenPowerType = FALSE,
+    },
+    [TYPE_CHAOS] =
+    {
+        .name = _("Chaos"),
+        .generic = _("a CHAOS move"),
+        .palette = 15,
+        .zMove = MOVE_BREAKNECK_BLITZ, // temporary
+        .maxMove = MOVE_MAX_STRIKE,    // temporary
+        .teraTypeRGBValue = RGB(20, 8, 24),
+        .damageCategory = DAMAGE_CATEGORY_SPECIAL,
+        .paletteTMHM = gItemIconPalette_PsychicTMHM, // temporary
+        .useSecondTypeIconPalette = TRUE,
+        .isSpecialCaseType = FALSE,
+        .isHiddenPowerType = FALSE,
+    },
+    [TYPE_ANGEL] =
+    {
+        .name = _("Angel"),
+        .generic = _("an ANGEL move"),
+        .palette = 14,
+        .zMove = MOVE_TWINKLE_TACKLE, // temporary
+        .maxMove = MOVE_MAX_STARFALL, // temporary
+        .teraTypeRGBValue = RGB(28, 28, 31),
+        .damageCategory = DAMAGE_CATEGORY_SPECIAL,
+        .paletteTMHM = gItemIconPalette_FairyTMHM, // temporary
+        .useSecondTypeIconPalette = TRUE,
+        .isSpecialCaseType = FALSE,
+        .isHiddenPowerType = FALSE,
+    },
+    [TYPE_DEMON] =
+    {
+        .name = _("Demon"),
+        .generic = _("a DEMON move"),
+        .palette = 13,
+        .zMove = MOVE_BLACK_HOLE_ECLIPSE, // temporary
+        .maxMove = MOVE_MAX_DARKNESS,    // temporary
+        .teraTypeRGBValue = RGB(18, 4, 8),
+        .damageCategory = DAMAGE_CATEGORY_SPECIAL,
+        .paletteTMHM = gItemIconPalette_DarkTMHM, // temporary
+        .useSecondTypeIconPalette = TRUE,
+        .isSpecialCaseType = FALSE,
+        .isHiddenPowerType = FALSE,
+    },
+    [TYPE_AURUM] =
+    {
+        .name = _("Aurum"),
+        .generic = _("an AURUM move"),
+        .palette = 13,
+        .zMove = MOVE_CORKSCREW_CRASH, // temporary
+        .maxMove = MOVE_MAX_STEELSPIKE, // temporary
+        .teraTypeRGBValue = RGB(28, 24, 8),
+        .damageCategory = DAMAGE_CATEGORY_PHYSICAL,
+        .paletteTMHM = gItemIconPalette_SteelTMHM, // temporary
+        .useSecondTypeIconPalette = FALSE,
+        .isSpecialCaseType = FALSE,
+        .isHiddenPowerType = FALSE,
+    },
+    [TYPE_CRYSTAL] =
+    {
+        .name = _("Crystal"),
+        .generic = _("a CRYSTAL move"),
+        .palette = 14,
+        .zMove = MOVE_BREAKNECK_BLITZ, // temporary
+        .maxMove = MOVE_MAX_STRIKE,    // temporary
+        .teraTypeRGBValue = RGB(20, 28, 31),
+        .damageCategory = DAMAGE_CATEGORY_SPECIAL,
+        .paletteTMHM = gItemIconPalette_IceTMHM, // temporary
+        .useSecondTypeIconPalette = TRUE,
+        .isSpecialCaseType = FALSE,
+        .isHiddenPowerType = FALSE,
     },
 };

@@ -24,7 +24,14 @@ enum __attribute__((packed)) Type
     TYPE_DRAGON = 17,
     TYPE_DARK = 18,
     TYPE_FAIRY = 19,
-    TYPE_STELLAR = 20,
+    // New types (custom expansion - Gen 7 base + 7 new)
+    TYPE_SHADOW = 20,
+    TYPE_LIGHT = 21,
+    TYPE_CHAOS = 22,
+    TYPE_ANGEL = 23,
+    TYPE_DEMON = 24,
+    TYPE_AURUM = 25,
+    TYPE_CRYSTAL = 26,
     NUMBER_OF_MON_TYPES
 };
 

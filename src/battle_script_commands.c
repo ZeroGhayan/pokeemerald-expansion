@@ -1598,9 +1598,25 @@ static void MoveDamageDataHpUpdate(enum BattlerId battler, u32 scriptBattler, co
         // check substitute fading
         if (gBattleMons[battler].volatiles.substituteHP == 0)
         {
+            bool32 wasInfinityCocoon = gBattleMons[battler].volatiles.infinityCocoon;
+            gBattleMons[battler].volatiles.infinityCocoon = FALSE;
+            gBattleMons[battler].volatiles.substitute = FALSE;
+
             gBattlescriptCurrInstr = nextInstr;
             gBattleScripting.battler = battler;
-            BattleScriptCall(BattleScript_SubstituteFade);
+
+            // Infinity Cocoon: if broken the same turn it was created, hurt the attacker for 1/2 max HP
+            if (wasInfinityCocoon
+             && IsBattlerAlive(gBattlerAttacker)
+             && !IsAbilityAndRecord(gBattlerAttacker, GetBattlerAbility(gBattlerAttacker), ABILITY_MAGIC_GUARD))
+            {
+                SetPassiveDamageAmount(gBattlerAttacker, GetNonDynamaxMaxHP(gBattlerAttacker) / 2);
+                BattleScriptCall(BattleScript_InfinityCocoonFade);
+            }
+            else
+            {
+                BattleScriptCall(BattleScript_SubstituteFade);
+            }
         }
         else
         {
@@ -6835,6 +6851,7 @@ bool32 TryTidyUpClear(bool32 clear)
                 gBattleScripting.battler = i;
                 gBattleMons[i].volatiles.substituteHP = 0;
                 gBattleMons[i].volatiles.substitute = FALSE;
+                gBattleMons[i].volatiles.infinityCocoon = FALSE;
                 BattleScriptCall(BattleScript_SubstituteFade);
             }
             clearFound = TRUE;

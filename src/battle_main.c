@@ -5049,6 +5049,9 @@ static void TurnValuesCleanUp(bool8 var0)
         if (gBattleMons[i].volatiles.substituteHP == 0)
             gBattleMons[i].volatiles.substitute = FALSE;
 
+        // Infinity Cocoon only triggers if broken the same turn it was set
+        gBattleMons[i].volatiles.infinityCocoon = FALSE;
+
         if (gBattleMons[i].volatiles.semiInvulnerable != STATE_COMMANDER)
             gBattleStruct->battlerState[i].commandingDondozo = FALSE;
 

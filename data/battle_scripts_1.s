@@ -5218,6 +5218,12 @@ BattleScript_SubstituteFade::
 	printstring STRINGID_PKMNSUBSTITUTEFADED
 	return
 
+BattleScript_InfinityCocoonFade::
+	playanimation BS_SCRIPTING, B_ANIM_SUBSTITUTE_FADE
+	printstring STRINGID_PKMNSUBSTITUTEFADED
+	call BattleScript_HurtAttacker
+	return
+
 BattleScript_BerryCureStatusRet::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_BERRY
 	printfromtable CureStatusBerryEffectStringID

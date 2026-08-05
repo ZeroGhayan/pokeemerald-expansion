@@ -1058,6 +1058,12 @@ enum __attribute__((packed)) Item
     ITEM_SOLAR_PLATE,
     ITEM_PURE_PLATE,
 
+    // Custom Memories (new types)
+    ITEM_LIGHT_MEMORY,
+    ITEM_CHAOS_MEMORY,
+    ITEM_AURUM_MEMORY,
+    ITEM_CRYSTAL_MEMORY,
+
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };

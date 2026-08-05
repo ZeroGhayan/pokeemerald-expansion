@@ -5631,6 +5631,86 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_FairyMemory,
     },
 
+        [ITEM_LIGHT_MEMORY] =
+    {
+        .name = ITEM_NAME("Light Memory"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_MEMORY,
+        .holdEffectParam = 0,
+        .description = COMPOUND_STRING(
+            "A disc with Light\n"
+            "type data. It swaps\n"
+            "Silvally's type."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_MEMORY,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_LIGHT,
+        .flingPower = 50,
+        .iconPic = gItemIcon_Memory,
+        .iconPalette = gItemIconPalette_FairyMemory, // temporary
+    },
+
+    [ITEM_CHAOS_MEMORY] =
+    {
+        .name = ITEM_NAME("Chaos Memory"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_MEMORY,
+        .holdEffectParam = 0,
+        .description = COMPOUND_STRING(
+            "A disc with Chaos\n"
+            "type data. It swaps\n"
+            "Silvally's type."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_MEMORY,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_CHAOS,
+        .flingPower = 50,
+        .iconPic = gItemIcon_Memory,
+        .iconPalette = gItemIconPalette_DarkMemory, // temporary
+    },
+
+    [ITEM_AURUM_MEMORY] =
+    {
+        .name = ITEM_NAME("Aurum Memory"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_MEMORY,
+        .holdEffectParam = 0,
+        .description = COMPOUND_STRING(
+            "A disc with Aurum\n"
+            "type data. It swaps\n"
+            "Silvally's type."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_MEMORY,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_AURUM,
+        .flingPower = 50,
+        .iconPic = gItemIcon_Memory,
+        .iconPalette = gItemIconPalette_SteelMemory, // temporary
+    },
+
+    [ITEM_CRYSTAL_MEMORY] =
+    {
+        .name = ITEM_NAME("Crystal Memory"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_MEMORY,
+        .holdEffectParam = 0,
+        .description = COMPOUND_STRING(
+            "A disc with Crystal\n"
+            "type data. It swaps\n"
+            "Silvally's type."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_MEMORY,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_CRYSTAL,
+        .flingPower = 50,
+        .iconPic = gItemIcon_Memory,
+        .iconPalette = gItemIconPalette_IceMemory, // temporary
+    },
+
     [ITEM_RUSTED_SWORD] =
     {
         .name = ITEM_NAME("Rusted Sword"),

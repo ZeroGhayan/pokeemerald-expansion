@@ -23667,7 +23667,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_BLITZ] =
     {
         .name = COMPOUND_STRING("Shadow Blitz"),
-        .description = COMPOUND_STRING("A basic Shadow attack."),
+        .description = COMPOUND_STRING(
+            "A Pokémon throws this tackle\n"
+            "while casting a shadowy aura."),
         .effect = EFFECT_HIT,
         .power = 40,
         .type = TYPE_SHADOW,
@@ -23683,7 +23685,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_RUSH] =
     {
         .name = COMPOUND_STRING("Shadow Rush"),
-        .description = COMPOUND_STRING("A powerful Shadow tackle."),
+        .description = COMPOUND_STRING(
+            "An attack that is so harsh,\n"
+            "it also hurts the attacker."),
         .effect = EFFECT_HIT,
         .power = 55,
         .type = TYPE_SHADOW,
@@ -23699,7 +23703,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_BREAK] =
     {
         .name = COMPOUND_STRING("Shadow Break"),
-        .description = COMPOUND_STRING("A strong Shadow physical attack."),
+        .description = COMPOUND_STRING(
+            "A shattering ram attack\n"
+            "with a shadowy aura."),
         .effect = EFFECT_HIT,
         .power = 75,
         .type = TYPE_SHADOW,
@@ -23734,7 +23740,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_WAVE] =
     {
         .name = COMPOUND_STRING("Shadow Wave"),
-        .description = COMPOUND_STRING("A wave of Shadow energy."),
+        .description = COMPOUND_STRING(
+            "Shadowy aura waves are\n"
+            "loosed to inflict damage."),
         .effect = EFFECT_HIT,
         .power = 50,
         .type = TYPE_SHADOW,
@@ -23749,7 +23757,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_RAVE] =
     {
         .name = COMPOUND_STRING("Shadow Rave"),
-        .description = COMPOUND_STRING("A strong Shadow special attack."),
+        .description = COMPOUND_STRING(
+            "A shadowy aura in the ground\n"
+            "is used to launch spikes."),
         .effect = EFFECT_HIT,
         .power = 70,
         .type = TYPE_SHADOW,
@@ -23764,7 +23774,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_STORM] =
     {
         .name = COMPOUND_STRING("Shadow Storm"),
-        .description = COMPOUND_STRING("A powerful Shadow storm."),
+        .description = COMPOUND_STRING(
+            "A shadowy aura is used to\n"
+            "whip up a vicious tornado."),
         .effect = EFFECT_HIT,
         .power = 95,
         .type = TYPE_SHADOW,
@@ -23779,7 +23791,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_BLAST] =
     {
         .name = COMPOUND_STRING("Shadow Blast"),
-        .description = COMPOUND_STRING("A focused blast of Shadow."),
+        .description = COMPOUND_STRING(
+            "A wicked blade of air is\n"
+            "formed using a shadowy aura."),
         .effect = EFFECT_HIT,
         .power = 80,
         .type = TYPE_SHADOW,
@@ -23794,7 +23808,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_BOLT] =
     {
         .name = COMPOUND_STRING("Shadow Bolt"),
-        .description = COMPOUND_STRING("A bolt of pure Shadow energy."),
+        .description = COMPOUND_STRING(
+            "A shadowy thunder attack\n"
+            "that may paralyze."),
         .effect = EFFECT_HIT,
         .power = 75,
         .type = TYPE_SHADOW,
@@ -23809,7 +23825,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_HALF] =
     {
         .name = COMPOUND_STRING("Shadow Half"),
-        .description = COMPOUND_STRING("Cuts the foe's HP by half."),
+        .description = COMPOUND_STRING("A shadowy aura's energy cuts everyone's HP by half."),
         .effect = EFFECT_FIXED_PERCENT_DAMAGE, // closest existing
         .power = 1,
         .type = TYPE_SHADOW,
@@ -23850,15 +23866,20 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_SHED] =
     {
         .name = COMPOUND_STRING("Shadow Shed"),
-        .description = COMPOUND_STRING("Removes Light Screen,\nReflect and Safeguard."),
-        .effect = EFFECT_HIT, // placeholder
+        .description = COMPOUND_STRING(
+            "A shadowy aura eliminates\n"
+            "Reflect and similar moves."),
+        .effect = EFFECT_DEFOG, // reutiliza o fluxo; a lógica abaixo restringe o efeito
         .power = 0,
         .type = TYPE_SHADOW,
         .accuracy = 100,
-        .pp = 15,
+        .pp = 10,
         .target = TARGET_OPPONENTS_FIELD,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
+        // sem additionalEffects de evasion (Defog oficial baixa evasion; este não)
+        .ignoresProtect = TRUE,
+        .magicCoatAffected = TRUE,
         .battleAnimScript = gBattleAnimMove_Defog,
     },
 

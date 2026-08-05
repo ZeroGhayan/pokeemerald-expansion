@@ -6782,6 +6782,51 @@ bool32 TryDefogClear(enum BattlerId battlerAtk, bool32 clear)
 {
     s32 i;
 
+    // Shadow Shed (XD): only remove Reflect, Light Screen and Safeguard from the opposing side
+    if (gCurrentMove == MOVE_SHADOW_SHED)
+    {
+        enum BattleSide foeSide = GetBattlerSide(battlerAtk) ^ BIT_SIDE;
+        struct SideTimer *sideTimer = &gSideTimers[foeSide];
+        u32 *sideStatuses = &gSideStatuses[foeSide];
+        bool32 cleared = FALSE;
+
+        gBattleScripting.battler = foeSide;
+
+        if (clear)
+        {
+            if (*sideStatuses & SIDE_STATUS_REFLECT)
+            {
+                *sideStatuses &= ~SIDE_STATUS_REFLECT;
+                sideTimer->reflectTimer = 0;
+                PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_REFLECT);
+                BattleScriptCall(BattleScript_SideStatusWoreOff);
+                return TRUE;
+            }
+            if (*sideStatuses & SIDE_STATUS_LIGHTSCREEN)
+            {
+                *sideStatuses &= ~SIDE_STATUS_LIGHTSCREEN;
+                sideTimer->lightscreenTimer = 0;
+                PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_LIGHT_SCREEN);
+                BattleScriptCall(BattleScript_SideStatusWoreOff);
+                return TRUE;
+            }
+            if (*sideStatuses & SIDE_STATUS_SAFEGUARD)
+            {
+                *sideStatuses &= ~SIDE_STATUS_SAFEGUARD;
+                sideTimer->safeguardTimer = 0;
+                PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_SAFEGUARD);
+                BattleScriptCall(BattleScript_SideStatusWoreOff);
+                return TRUE;
+            }
+        }
+        else
+        {
+            if (*sideStatuses & (SIDE_STATUS_REFLECT | SIDE_STATUS_LIGHTSCREEN | SIDE_STATUS_SAFEGUARD))
+                return TRUE;
+        }
+        return FALSE;
+    }
+
     for (i = 0; i < NUM_BATTLE_SIDES; i++)
     {
         struct SideTimer *sideTimer = &gSideTimers[i];

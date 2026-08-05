@@ -19939,7 +19939,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .mirrorMoveBanned = TRUE,
         .metronomeBanned = TRUE,
         .battleAnimScript = gBattleAnimMove_PowerShift,
-},
+    },
 
     [MOVE_STONE_AXE] =
     {
@@ -23659,5 +23659,657 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .ignoresProtect = TRUE,
         .battleAnimScript = gBattleAnimMove_GMaxRapidFlow,
+    },
+    
+// ========== Custom moves (Shadow / Angel / Demon / Aurum / Crystal) ==========
+
+    // --- Shadow moves (Colosseum / XD style) ---
+    [MOVE_SHADOW_BLITZ] =
+    {
+        .name = COMPOUND_STRING("Shadow Blitz"),
+        .description = COMPOUND_STRING("A basic Shadow attack."),
+        .effect = EFFECT_HIT,
+        .power = 40,
+        .type = TYPE_SHADOW,
+        .accuracy = 100,
+        .pp = 35,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_Tackle,
+    },
+
+    [MOVE_SHADOW_RUSH] =
+    {
+        .name = COMPOUND_STRING("Shadow Rush"),
+        .description = COMPOUND_STRING("A powerful Shadow tackle."),
+        .effect = EFFECT_HIT,
+        .power = 55,
+        .type = TYPE_SHADOW,
+        .accuracy = 100,
+        .pp = 25,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_TakeDown,
+    },
+
+    [MOVE_SHADOW_BREAK] =
+    {
+        .name = COMPOUND_STRING("Shadow Break"),
+        .description = COMPOUND_STRING("A strong Shadow physical attack."),
+        .effect = EFFECT_HIT,
+        .power = 75,
+        .type = TYPE_SHADOW,
+        .accuracy = 100,
+        .pp = 20,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_Strength,
+    },
+
+    [MOVE_SHADOW_END] =
+    {
+        .name = COMPOUND_STRING("Shadow End"),
+        .description = COMPOUND_STRING("A high-power Shadow attack\nthat also hurts the user."),
+        .effect = EFFECT_HIT,
+        .power = 120,
+        .type = TYPE_SHADOW,
+        .accuracy = 80,
+        .pp = 5,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .recoil = 33, // approx 1/3
+        .battleAnimScript = gBattleAnimMove_DoubleEdge,
+    },
+
+    [MOVE_SHADOW_WAVE] =
+    {
+        .name = COMPOUND_STRING("Shadow Wave"),
+        .description = COMPOUND_STRING("A wave of Shadow energy."),
+        .effect = EFFECT_HIT,
+        .power = 50,
+        .type = TYPE_SHADOW,
+        .accuracy = 100,
+        .pp = 20,
+        .target = TARGET_BOTH,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_Surf,
+    },
+
+    [MOVE_SHADOW_RAVE] =
+    {
+        .name = COMPOUND_STRING("Shadow Rave"),
+        .description = COMPOUND_STRING("A strong Shadow special attack."),
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_SHADOW,
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_BOTH,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_HyperVoice,
+    },
+
+    [MOVE_SHADOW_STORM] =
+    {
+        .name = COMPOUND_STRING("Shadow Storm"),
+        .description = COMPOUND_STRING("A powerful Shadow storm."),
+        .effect = EFFECT_HIT,
+        .power = 95,
+        .type = TYPE_SHADOW,
+        .accuracy = 90,
+        .pp = 10,
+        .target = TARGET_BOTH,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_Hurricane,
+    },
+
+    [MOVE_SHADOW_BLAST] =
+    {
+        .name = COMPOUND_STRING("Shadow Blast"),
+        .description = COMPOUND_STRING("A focused blast of Shadow."),
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_SHADOW,
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_ShadowBall,
+    },
+
+    [MOVE_SHADOW_BOLT] =
+    {
+        .name = COMPOUND_STRING("Shadow Bolt"),
+        .description = COMPOUND_STRING("A bolt of pure Shadow energy."),
+        .effect = EFFECT_HIT,
+        .power = 75,
+        .type = TYPE_SHADOW,
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_Thunderbolt,
+    },
+
+    [MOVE_SHADOW_HALF] =
+    {
+        .name = COMPOUND_STRING("Shadow Half"),
+        .description = COMPOUND_STRING("Cuts the foe's HP by half."),
+        .effect = EFFECT_SUPER_FANG, // closest existing
+        .power = 1,
+        .type = TYPE_SHADOW,
+        .accuracy = 90,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_SuperFang,
+    },
+
+    [MOVE_SHADOW_SKY] =
+    {
+        .name = COMPOUND_STRING("Shadow Sky"),
+        .description = COMPOUND_STRING("Summons a shadowy sky\nthat boosts Shadow moves."),
+        .effect = EFFECT_HIT, // placeholder - will become weather later
+        .power = 0,
+        .type = TYPE_SHADOW,
+        .accuracy = 0,
+        .pp = 10,
+        .target = TARGET_ALL_BATTLERS,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_RainDance,
+    },
+
+    [MOVE_SHADOW_SHED] =
+    {
+        .name = COMPOUND_STRING("Shadow Shed"),
+        .description = COMPOUND_STRING("Removes Light Screen,\nReflect and Safeguard."),
+        .effect = EFFECT_HIT, // placeholder
+        .power = 0,
+        .type = TYPE_SHADOW,
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_OPPONENTS_FIELD,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Defog,
+    },
+
+    [MOVE_SHADOW_MIST] =
+    {
+        .name = COMPOUND_STRING("Shadow Mist"),
+        .description = COMPOUND_STRING("Lowers the evasion of\nall foes."),
+        .effect = EFFECT_EVASION_DOWN_HIT, // approximate
+        .power = 0,
+        .type = TYPE_SHADOW,
+        .accuracy = 100,
+        .pp = 20,
+        .target = TARGET_BOTH,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_SweetScent,
+    },
+
+    [MOVE_SHADOW_PANIC] =
+    {
+        .name = COMPOUND_STRING("Shadow Panic"),
+        .description = COMPOUND_STRING("Confuses all foes."),
+        .effect = EFFECT_CONFUSE,
+        .power = 0,
+        .type = TYPE_SHADOW,
+        .accuracy = 80,
+        .pp = 15,
+        .target = TARGET_BOTH,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_ConfuseRay,
+    },
+
+    [MOVE_SHADOW_DOWN] =
+    {
+        .name = COMPOUND_STRING("Shadow Down"),
+        .description = COMPOUND_STRING("Harshly lowers the Defense\nof all foes."),
+        .effect = EFFECT_DEFENSE_DOWN_2,
+        .power = 0,
+        .type = TYPE_SHADOW,
+        .accuracy = 90,
+        .pp = 20,
+        .target = TARGET_BOTH,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Screech,
+    },
+
+    [MOVE_SHADOW_HOLD] =
+    {
+        .name = COMPOUND_STRING("Shadow Hold"),
+        .description = COMPOUND_STRING("Prevents the foe from\nescaping."),
+        .effect = EFFECT_MEAN_LOOK,
+        .power = 0,
+        .type = TYPE_SHADOW,
+        .accuracy = 100,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_MeanLook,
+    },
+
+    // --- Angel moves ---
+    [MOVE_THOUSAND_HANDS] =
+    {
+        .name = COMPOUND_STRING("Thousand Hands"),
+        .description = COMPOUND_STRING("A powerful strike. If it\nmisses, the user is hurt badly."),
+        .effect = EFFECT_RECOIL_IF_MISS,
+        .power = 200,
+        .type = TYPE_ANGEL,
+        .accuracy = 10,
+        .pp = 5,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_HighJumpKick,
+    },
+
+    [MOVE_SERAPH_SONG] =
+    {
+        .name = COMPOUND_STRING("Seraph Song"),
+        .description = COMPOUND_STRING("A holy song that puts the\nfoe to sleep and confuses it."),
+        .effect = EFFECT_SLEEP, // will refine later for dual status
+        .power = 0,
+        .type = TYPE_ANGEL,
+        .accuracy = 70,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .soundMove = TRUE,
+        .battleAnimScript = gBattleAnimMove_Sing,
+    },
+
+    [MOVE_HOLY_BEAM] =
+    {
+        .name = COMPOUND_STRING("Holy Beam"),
+        .description = COMPOUND_STRING("A beam of pure light."),
+        .effect = EFFECT_HIT,
+        .power = 90,
+        .type = TYPE_ANGEL,
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_Moonblast,
+    },
+
+    [MOVE_DIVINE_JUDGMENT] =
+    {
+        .name = COMPOUND_STRING("Divine Judgment"),
+        .description = COMPOUND_STRING("A powerful divine attack."),
+        .effect = EFFECT_HIT,
+        .power = 100,
+        .type = TYPE_ANGEL,
+        .accuracy = 95,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_HyperBeam,
+    },
+
+    [MOVE_CELESTIAL_FORCE] =
+    {
+        .name = COMPOUND_STRING("Celestial Force"),
+        .description = COMPOUND_STRING("A forceful physical strike."),
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_ANGEL,
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_BodySlam,
+    },
+
+    [MOVE_SACRED_SEAL] =
+    {
+        .name = COMPOUND_STRING("Sacred Seal"),
+        .description = COMPOUND_STRING("Seals the foe, lowering\nits Special Attack."),
+        .effect = EFFECT_SPECIAL_ATTACK_DOWN,
+        .power = 0,
+        .type = TYPE_ANGEL,
+        .accuracy = 100,
+        .pp = 20,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Confide,
+    },
+
+    [MOVE_ANGELIC_GRACE] =
+    {
+        .name = COMPOUND_STRING("Angelic Grace"),
+        .description = COMPOUND_STRING("Restores HP with holy light."),
+        .effect = EFFECT_RESTORE_HP,
+        .power = 0,
+        .type = TYPE_ANGEL,
+        .accuracy = 0,
+        .pp = 10,
+        .target = TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Recover,
+    },
+
+    // --- Demon moves ---
+    [MOVE_INFINITY_COCOON] =
+    {
+        .name = COMPOUND_STRING("Infinity Cocoon"),
+        .description = COMPOUND_STRING("Creates a cocoon. If broken\nthe same turn, the foe takes damage."),
+        .effect = EFFECT_SUBSTITUTE, // temporary - special logic later
+        .power = 0,
+        .type = TYPE_DEMON,
+        .accuracy = 100,
+        .pp = 10,
+        .target = TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Substitute,
+    },
+
+    [MOVE_HELLFIRE] =
+    {
+        .name = COMPOUND_STRING("Hellfire"),
+        .description = COMPOUND_STRING("Scorching demonic flames."),
+        .effect = EFFECT_HIT,
+        .power = 95,
+        .type = TYPE_DEMON,
+        .accuracy = 95,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_Flamethrower,
+    },
+
+    [MOVE_ABYSSAL_CLAW] =
+    {
+        .name = COMPOUND_STRING("Abyssal Claw"),
+        .description = COMPOUND_STRING("Claws from the abyss."),
+        .effect = EFFECT_HIT,
+        .power = 85,
+        .type = TYPE_DEMON,
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_ShadowClaw,
+    },
+
+    [MOVE_CURSED_HOWL] =
+    {
+        .name = COMPOUND_STRING("Cursed Howl"),
+        .description = COMPOUND_STRING("A howl that lowers the\nfoe's Attack."),
+        .effect = EFFECT_ATTACK_DOWN,
+        .power = 0,
+        .type = TYPE_DEMON,
+        .accuracy = 100,
+        .pp = 20,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .soundMove = TRUE,
+        .battleAnimScript = gBattleAnimMove_Growl,
+    },
+
+    [MOVE_DEMONIC_PACT] =
+    {
+        .name = COMPOUND_STRING("Demonic Pact"),
+        .description = COMPOUND_STRING("A dark pact that boosts\nthe user's offenses."),
+        .effect = EFFECT_ATTACK_SPATK_UP, // approximate
+        .power = 0,
+        .type = TYPE_DEMON,
+        .accuracy = 0,
+        .pp = 10,
+        .target = TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_BulkUp,
+    },
+
+    [MOVE_SOUL_DRAIN] =
+    {
+        .name = COMPOUND_STRING("Soul Drain"),
+        .description = COMPOUND_STRING("Drains the foe's soul\nto restore HP."),
+        .effect = EFFECT_ABSORB,
+        .power = 75,
+        .type = TYPE_DEMON,
+        .accuracy = 100,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_GigaDrain,
+    },
+
+    [MOVE_INFERNAL_GATE] =
+    {
+        .name = COMPOUND_STRING("Infernal Gate"),
+        .description = COMPOUND_STRING("Opens a gate of hellish energy."),
+        .effect = EFFECT_HIT,
+        .power = 100,
+        .type = TYPE_DEMON,
+        .accuracy = 90,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_DarkPulse,
+    },
+
+    // --- Aurum moves ---
+    [MOVE_GOLDEN_BURST] =
+    {
+        .name = COMPOUND_STRING("Golden Burst"),
+        .description = COMPOUND_STRING("Charges and then attacks.\nRaises Defense on the charge turn."),
+        .effect = EFFECT_SKULL_BASH,
+        .power = 130,
+        .type = TYPE_AURUM,
+        .accuracy = 100,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_SkullBash,
+    },
+
+    [MOVE_MIDAS_TOUCH] =
+    {
+        .name = COMPOUND_STRING("Midas Touch"),
+        .description = COMPOUND_STRING("A touch that lowers the\nfoe's Speed."),
+        .effect = EFFECT_SPEED_DOWN_HIT,
+        .power = 60,
+        .type = TYPE_AURUM,
+        .accuracy = 100,
+        .pp = 20,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_MetalClaw,
+    },
+
+    [MOVE_AURIC_BLADE] =
+    {
+        .name = COMPOUND_STRING("Auric Blade"),
+        .description = COMPOUND_STRING("A golden blade slash."),
+        .effect = EFFECT_HIT,
+        .power = 90,
+        .type = TYPE_AURUM,
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_PsychoCut,
+    },
+
+    [MOVE_GOLD_RUSH] =
+    {
+        .name = COMPOUND_STRING("Gold Rush"),
+        .description = COMPOUND_STRING("A rapid golden strike."),
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_AURUM,
+        .accuracy = 100,
+        .pp = 20,
+        .target = TARGET_SELECTED,
+        .priority = 1,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_QuickAttack,
+    },
+
+    [MOVE_TREASURE_TRAP] =
+    {
+        .name = COMPOUND_STRING("Treasure Trap"),
+        .description = COMPOUND_STRING("Sets a trap that hurts\nfoes that switch in."),
+        .effect = EFFECT_SPIKES, // approximate
+        .power = 0,
+        .type = TYPE_AURUM,
+        .accuracy = 0,
+        .pp = 20,
+        .target = TARGET_OPPONENTS_FIELD,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Spikes,
+    },
+
+    [MOVE_ROYAL_GUARD] =
+    {
+        .name = COMPOUND_STRING("Royal Guard"),
+        .description = COMPOUND_STRING("Raises Defense and\nSpecial Defense."),
+        .effect = EFFECT_COSMIC_POWER, // approximate
+        .power = 0,
+        .type = TYPE_AURUM,
+        .accuracy = 0,
+        .pp = 15,
+        .target = TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_CosmicPower,
+    },
+
+    [MOVE_PROSPERITY] =
+    {
+        .name = COMPOUND_STRING("Prosperity"),
+        .description = COMPOUND_STRING("A golden blessing that\nrestores HP."),
+        .effect = EFFECT_RESTORE_HP,
+        .power = 0,
+        .type = TYPE_AURUM,
+        .accuracy = 0,
+        .pp = 10,
+        .target = TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Recover,
+    },
+
+    // --- Crystal moves ---
+    [MOVE_DIAMOND_DUST] =
+    {
+        .name = COMPOUND_STRING("Diamond Dust"),
+        .description = COMPOUND_STRING("A spray of diamond dust."),
+        .effect = EFFECT_HIT,
+        .power = 100,
+        .type = TYPE_CRYSTAL,
+        .accuracy = 100,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_PowerGem,
+    },
+
+    [MOVE_CRIOGENESIS] =
+    {
+        .name = COMPOUND_STRING("Criogenesis"),
+        .description = COMPOUND_STRING("A crystal OHKO attack.\nMore accurate if user is Crystal."),
+        .effect = EFFECT_OHKO,
+        .power = 1,
+        .type = TYPE_CRYSTAL,
+        .accuracy = 75,
+        .pp = 5,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_SheerCold,
+    },
+
+    [MOVE_PRISM_SHOT] =
+    {
+        .name = COMPOUND_STRING("Prism Shot"),
+        .description = COMPOUND_STRING("A shot of prismatic energy."),
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_CRYSTAL,
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_DazzlingGleam,
+    },
+
+    [MOVE_CRYSTAL_LANCE] =
+    {
+        .name = COMPOUND_STRING("Crystal Lance"),
+        .description = COMPOUND_STRING("A lance of pure crystal."),
+        .effect = EFFECT_HIT,
+        .power = 85,
+        .type = TYPE_CRYSTAL,
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .battleAnimScript = gBattleAnimMove_IcicleSpear,
+    },
+
+    [MOVE_REFRACT] =
+    {
+        .name = COMPOUND_STRING("Refract"),
+        .description = COMPOUND_STRING("Raises Special Defense\nand reflects status moves."),
+        .effect = EFFECT_SPECIAL_DEFENSE_UP,
+        .power = 0,
+        .type = TYPE_CRYSTAL,
+        .accuracy = 0,
+        .pp = 15,
+        .target = TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .battleAnimScript = gBattleAnimMove_Amnesia,
     },
 };

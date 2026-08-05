@@ -5894,20 +5894,32 @@ enum Type GetDynamicMoveType(struct Pokemon *mon, enum Move move, enum BattlerId
                 enum Type teraType;
                 if (gimmick == GIMMICK_TERA && ((teraType = GetMonData(mon, MON_DATA_TERA_TYPE)) != TYPE_STELLAR))
                     return teraType;
-                if (types[0] != TYPE_MYSTERY && !(gBattleMons[battler].volatiles.roostActive && types[0] == TYPE_FLYING))
+
+                // Ignore Chaos type completely
+                if (types[0] != TYPE_MYSTERY && types[0] != TYPE_CHAOS
+                 && !(gBattleMons[battler].volatiles.roostActive && types[0] == TYPE_FLYING))
                     return types[0];
-                if (types[1] != TYPE_MYSTERY && !(gBattleMons[battler].volatiles.roostActive && types[1] == TYPE_FLYING))
+
+                if (types[1] != TYPE_MYSTERY && types[1] != TYPE_CHAOS
+                 && !(gBattleMons[battler].volatiles.roostActive && types[1] == TYPE_FLYING))
                     return types[1];
+
                 if (gBattleMons[battler].volatiles.roostActive)
                     return (B_ROOST_PURE_FLYING >= GEN_5 ? TYPE_NORMAL : TYPE_MYSTERY);
-                if (types[2] != TYPE_MYSTERY)
+
+                if (types[2] != TYPE_MYSTERY && types[2] != TYPE_CHAOS)
                     return types[2];
 
-                return TYPE_MYSTERY;
+                return TYPE_MYSTERY; // pure Chaos or no valid type
             }
             else
             {
-                return types[0];
+                // Out of battle: also ignore Chaos
+                if (types[0] != TYPE_CHAOS)
+                    return types[0];
+                if (types[1] != TYPE_MYSTERY && types[1] != TYPE_CHAOS)
+                    return types[1];
+                return TYPE_MYSTERY;
             }
         }
         break;

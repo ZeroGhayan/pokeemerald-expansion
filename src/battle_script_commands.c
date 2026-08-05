@@ -7845,11 +7845,16 @@ static void Cmd_setsubstitute(void)
     {
         gBattleMons[gBattlerAttacker].volatiles.substitute = TRUE;
         gBattleMons[gBattlerAttacker].volatiles.wrapped = FALSE;
+        // Infinity Cocoon: mark that this substitute came from the move
+        if (gCurrentMove == MOVE_INFINITY_COCOON)
+            gBattleMons[gBattlerAttacker].volatiles.infinityCocoon = TRUE;
+        else
+            gBattleMons[gBattlerAttacker].volatiles.infinityCocoon = FALSE;
         if (factor == 2)
             gBattleMons[gBattlerAttacker].volatiles.substituteHP = hp / 2;
         else
             gBattleMons[gBattlerAttacker].volatiles.substituteHP = hp;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;       
     }
 
     gBattleStruct->passiveHpUpdate[gBattlerAttacker] = hp;

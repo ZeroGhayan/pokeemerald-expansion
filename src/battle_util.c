@@ -2900,6 +2900,46 @@ static bool32 TryDancer(void)
     return FALSE;
 }
 
+bool32 IsFactorPrimaryType(enum Type type)
+{
+    return (type == TYPE_SHADOW
+         || type == TYPE_AURUM
+         || type == TYPE_ANGEL
+         || type == TYPE_DEMON
+         || type == TYPE_CRYSTAL);
+}
+
+bool32 BattlerHasFactorPrimary(enum BattlerId battler)
+{
+    return IsFactorPrimaryType(gBattleMons[battler].types[0]);
+}
+
+enum Type RemapSpecialMoveTypeForTypeChange(enum Type moveType)
+{
+    if (moveType == TYPE_SHADOW
+     || moveType == TYPE_LIGHT
+     || moveType == TYPE_CHAOS
+     || moveType == TYPE_ANGEL
+     || moveType == TYPE_DEMON
+     || moveType == TYPE_AURUM
+     || moveType == TYPE_CRYSTAL)
+        return TYPE_NORMAL;
+    return moveType;
+}
+
+void SetBattlerTypeRespectingFactorForm(enum BattlerId battler, enum Type newType)
+{
+    if (BattlerHasFactorPrimary(battler))
+    {
+        gBattleMons[battler].types[1] = newType;
+    }
+    else
+    {
+        SET_BATTLER_TYPE(battler, newType);
+    }
+}
+
+
 u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum Ability ability, enum Move move, bool32 shouldAbilityTrigger)
 {
     u32 effect = 0;
@@ -3732,16 +3772,31 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
         {
         case ABILITY_COLOR_CHANGE:
             if (IsBattlerTurnDamaged(battler, EXCLUDING_SUBSTITUTES)
-             && !IS_BATTLER_OF_TYPE(battler, moveType)
              && move != MOVE_STRUGGLE
              && moveType != TYPE_STELLAR
              && moveType != TYPE_MYSTERY)
             {
-                gEffectBattler = gBattlerAbility = battler;
-                SET_BATTLER_TYPE(battler, moveType);
-                PREPARE_TYPE_BUFFER(gBattleTextBuff1, moveType);
-                BattleScriptCall(BattleScript_ColorChangeActivates);
-                effect++;
+                enum Type newType = RemapSpecialMoveTypeForTypeChange(moveType);
+
+                if (BattlerHasFactorPrimary(battler))
+                {
+                    if (gBattleMons[battler].types[1] != newType)
+                    {
+                        gEffectBattler = gBattlerAbility = battler;
+                        SetBattlerTypeRespectingFactorForm(battler, newType);
+                        PREPARE_TYPE_BUFFER(gBattleTextBuff1, newType);
+                        BattleScriptCall(BattleScript_ColorChangeActivates);
+                        effect++;
+                    }
+                }
+                else if (!IS_BATTLER_OF_TYPE(battler, newType))
+                {
+                    gEffectBattler = gBattlerAbility = battler;
+                    SetBattlerTypeRespectingFactorForm(battler, newType);
+                    PREPARE_TYPE_BUFFER(gBattleTextBuff1, newType);
+                    BattleScriptCall(BattleScript_ColorChangeActivates);
+                    effect++;
+                }
             }
             break;
         case ABILITY_BERSERK:

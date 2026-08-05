@@ -8131,6 +8131,11 @@ static void Cmd_settypetorandomresistance(void)
 
         for (i = 0; i < NUMBER_OF_MON_TYPES; i++) // Find all types that resist.
         {
+            if (i == TYPE_SHADOW || i == TYPE_LIGHT || i == TYPE_CHAOS
+             || i == TYPE_ANGEL  || i == TYPE_DEMON || i == TYPE_AURUM
+             || i == TYPE_CRYSTAL)
+                continue;
+
             switch (GetTypeModifier(typeToCheck, i))
             {
             case UQ_4_12(0):
@@ -8151,7 +8156,14 @@ static void Cmd_settypetorandomresistance(void)
                 }
                 else
                 {
-                    SET_BATTLER_TYPE(gBattlerAttacker, i);
+                    if (BattlerHasFactorPrimary(gBattlerAttacker)
+                     && gBattleMons[gBattlerAttacker].types[1] == i)
+                    {
+                        resistTypes &= ~(1u << i);
+                        continue;
+                    }
+
+                    SetBattlerTypeRespectingFactorForm(gBattlerAttacker, i);
                     PREPARE_TYPE_BUFFER(gBattleTextBuff1, i);
                     gBattlescriptCurrInstr = cmd->nextInstr;
                     return;

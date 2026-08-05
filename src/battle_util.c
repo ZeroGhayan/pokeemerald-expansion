@@ -6432,7 +6432,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
     {
         u32 weather = GetAttackerWeather(ctx->holdEffects[ctx->battlerAtk], ctx->abilities[ctx->battlerAtk], ctx->weather);
         if ((GetConfig(B_SANDSTORM_SOLAR_BEAM) >= GEN_3 && weather & B_WEATHER_LOW_LIGHT)
-            || weather & (B_WEATHER_RAIN | B_WEATHER_ICY_ANY | B_WEATHER_FOG)) // Excludes Sandstorm
+            || weather & (B_WEATHER_RAIN | B_WEATHER_ICY_ANY | B_WEATHER_FOG | B_WEATHER_SHADOW_SKY)) // Excludes Sandstorm
             modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
         break;
     }
@@ -7293,6 +7293,13 @@ static uq4_12_t GetWeatherDamageModifier(struct DamageContext *ctx)
         if (ctx->moveType != TYPE_FIRE && ctx->moveType != TYPE_WATER)
             return UQ_4_12(1.0);
         return (ctx->moveType == TYPE_FIRE) ? UQ_4_12(0.5) : UQ_4_12(1.5);
+    }
+
+    // Shadow Sky: boost Shadow-type moves (Colosseum/XD style)
+    if ((ctx->weather & B_WEATHER_SHADOW_SKY) || (attackerWeather & B_WEATHER_SHADOW_SKY))
+    {
+        if (ctx->moveType == TYPE_SHADOW)
+            return UQ_4_12(1.5);
     }
 
     return UQ_4_12(1.0);

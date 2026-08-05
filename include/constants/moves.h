@@ -932,7 +932,6 @@ enum __attribute__((packed)) Move
     MOVE_CELESTIAL_FORCE,
     MOVE_SACRED_SEAL,
     MOVE_ANGELIC_GRACE,
-
     // ========== Demon moves ==========
     MOVE_INFINITY_COCOON,     // Substitute + damage if broken same turn
     MOVE_HELLFIRE,
@@ -941,7 +940,6 @@ enum __attribute__((packed)) Move
     MOVE_DEMONIC_PACT,
     MOVE_SOUL_DRAIN,
     MOVE_INFERNAL_GATE,
-
     // ========== Aurum moves ==========
     MOVE_GOLDEN_BURST,        // Like Skull Bash
     MOVE_MIDAS_TOUCH,
@@ -950,7 +948,6 @@ enum __attribute__((packed)) Move
     MOVE_TREASURE_TRAP,
     MOVE_ROYAL_GUARD,
     MOVE_PROSPERITY,
-
     // ========== Crystal moves ==========
     MOVE_DIAMOND_DUST,        // 100/100
     MOVE_CRIOGENESIS,         // OHKO 75 (100 se for Crystal)

@@ -5113,6 +5113,86 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_Plate,
         .iconPalette = gItemIconPalette_PixiePlate,
     },
+    
+    [ITEM_LUMEN_PLATE] =
+    {
+        .name = ITEM_NAME("Lumen Plate"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_PLATE,
+        .holdEffectParam = 20,
+        .description = COMPOUND_STRING(
+            "A tablet that ups\n"
+            "the power of\n"
+            "Light-type moves."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_PLATE,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_LIGHT,
+        .flingPower = 90,
+        .iconPic = gItemIcon_Plate,
+        .iconPalette = gItemIconPalette_PixiePlate, // temporary
+    },
+
+    [ITEM_ORIGIN_PLATE] =
+    {
+        .name = ITEM_NAME("Origin Plate"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_PLATE,
+        .holdEffectParam = 20,
+        .description = COMPOUND_STRING(
+            "A tablet that ups\n"
+            "the power of\n"
+            "Chaos-type moves."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_PLATE,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_CHAOS,
+        .flingPower = 90,
+        .iconPic = gItemIcon_Plate,
+        .iconPalette = gItemIconPalette_SpookyPlate, // temporary
+    },
+
+    [ITEM_SOLAR_PLATE] =
+    {
+        .name = ITEM_NAME("Solar Plate"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_PLATE,
+        .holdEffectParam = 20,
+        .description = COMPOUND_STRING(
+            "A tablet that ups\n"
+            "the power of\n"
+            "Aurum-type moves."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_PLATE,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_AURUM,
+        .flingPower = 90,
+        .iconPic = gItemIcon_Plate,
+        .iconPalette = gItemIconPalette_FlamePlate, // temporary
+    },
+
+    [ITEM_PURE_PLATE] =
+    {
+        .name = ITEM_NAME("Pure Plate"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_PLATE,
+        .holdEffectParam = 20,
+        .description = COMPOUND_STRING(
+            "A tablet that ups\n"
+            "the power of\n"
+            "Crystal-type moves."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_PLATE,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_CRYSTAL,
+        .flingPower = 90,
+        .iconPic = gItemIcon_Plate,
+        .iconPalette = gItemIconPalette_IciclePlate, // temporary
+    },
 
 // Drives
 

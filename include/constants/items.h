@@ -1052,6 +1052,12 @@ enum __attribute__((packed)) Item
     ITEM_TATSUGIRINITE = 872,
     ITEM_GLIMMORANITE = 873,
 
+    // Custom Plates (new types)
+    ITEM_LUMEN_PLATE,
+    ITEM_ORIGIN_PLATE,
+    ITEM_SOLAR_PLATE,
+    ITEM_PURE_PLATE,
+
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };

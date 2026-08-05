@@ -223,6 +223,17 @@ static const struct BattleWeatherInfo sBattleWeatherInfo[BATTLE_WEATHER_COUNT] =
         .continuesMessage = B_MSG_WEATHER_TURN_STRONG_WINDS,
         .animation = B_ANIM_STRONG_WINDS,
     },
+
+    [BATTLE_WEATHER_SHADOW_SKY] =
+    {
+        .flag = B_WEATHER_SHADOW_SKY,
+        .rock = HOLD_EFFECT_NONE, // sem item de duração por enquanto
+        .abilityStartMessage = B_MSG_STARTED_SHADOW_SKY, // se no futuro houver ability
+        .moveStartMessage = B_MSG_STARTED_SHADOW_SKY,
+        .endMessage = B_MSG_WEATHER_END_SHADOW_SKY,
+        .continuesMessage = B_MSG_WEATHER_TURN_SHADOW_SKY,
+        .animation = B_ANIM_SANDSTORM_CONTINUES, // temporário; depois trocamos
+    },
 };
 
 u32 GetCurrentBattleWeather(void)

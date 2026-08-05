@@ -23822,16 +23822,22 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_SKY] =
     {
         .name = COMPOUND_STRING("Shadow Sky"),
-        .description = COMPOUND_STRING("Summons a shadowy sky\nthat boosts Shadow moves."),
-        .effect = EFFECT_HIT, // placeholder - will become weather later
+        .description = COMPOUND_STRING(
+            "Summons a shadowy aura\n"
+            "that boosts Shadow moves."),
+        .effect = EFFECT_WEATHER,
         .power = 0,
         .type = TYPE_SHADOW,
         .accuracy = 0,
         .pp = 10,
-        .target = TARGET_ALL_BATTLERS,
+        .target = TARGET_ALL_BATTLERS, // ou TARGET_FIELD, como Rain Dance
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
-        .battleAnimScript = gBattleAnimMove_RainDance,
+        .zMove = { .effect = Z_EFFECT_SPD_UP_1 },
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .argument = { .weatherType = BATTLE_WEATHER_SHADOW_SKY },
+        .battleAnimScript = gBattleAnimMove_RainDance, // temporário
     },
 
     [MOVE_SHADOW_SHED] =

@@ -181,6 +181,22 @@ static bool32 HandleEndTurnWeatherDamage(enum BattlerId battler)
             }
         }
         break;
+    case BATTLE_WEATHER_SHADOW_SKY:
+        // Colosseum/XD: damages non-Shadow; Crystal also immune (project rule)
+        if (ability != ABILITY_OVERCOAT
+         && !IS_BATTLER_OF_TYPE(battler, TYPE_SHADOW)
+         && !IS_BATTLER_OF_TYPE(battler, TYPE_CRYSTAL)
+         && gBattleMons[battler].volatiles.semiInvulnerable != STATE_UNDERGROUND
+         && gBattleMons[battler].volatiles.semiInvulnerable != STATE_UNDERWATER
+         && GetBattlerHoldEffect(battler) != HOLD_EFFECT_SAFETY_GOGGLES
+         && !IsAbilityAndRecord(battler, ability, ABILITY_MAGIC_GUARD))
+        {
+            SetPassiveDamageAmount(battler, GetNonDynamaxMaxHP(battler) / 16);
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SHADOW_SKY;
+            BattleScriptCall(BattleScript_DamagingWeather);
+            effect = TRUE;
+        }
+        break;
     }
 
     return effect;

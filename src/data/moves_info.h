@@ -23825,21 +23825,23 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_HALF] =
     {
         .name = COMPOUND_STRING("Shadow Half"),
-        .description = COMPOUND_STRING("A shadowy aura's energy cuts everyone's HP by half."),
-        .effect = EFFECT_FIXED_PERCENT_DAMAGE, // closest existing
+        .description = COMPOUND_STRING(
+            "A shadowy aura cuts all\n"
+            "Pokémon's HP in half."),
+        .effect = EFFECT_FIXED_PERCENT_DAMAGE,
         .power = 1,
         .type = TYPE_SHADOW,
         .accuracy = 100,
-        .pp = 10,
-        .target = TARGET_FOES_AND_ALLY,
+        .pp = 5,
+        .target = TARGET_FOES_AND_ALLY, // todos no campo (exceto o usuário em alguns alvos; ver nota)
         .priority = 0,
-        .category = DAMAGE_CATEGORY_SPECIAL,
-        .battleAnimScript = gBattleAnimMove_SuperFang,
+        .category = DAMAGE_CATEGORY_SPECIAL, // XD trata como “dano”; SPECIAL evita contato
         .argument = { .damagePercentage = 50 },
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_RECHARGE,
             .self = TRUE,
         }),
+        .battleAnimScript = gBattleAnimMove_SuperFang, // temporário
     },
 
     [MOVE_SHADOW_SKY] =

@@ -23715,17 +23715,19 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_END] =
     {
         .name = COMPOUND_STRING("Shadow End"),
-        .description = COMPOUND_STRING("A high-power Shadow attack\nthat also hurts the user."),
-        .effect = EFFECT_HIT,
+        .description = COMPOUND_STRING(
+            "A shadowy ram attack that\n"
+            "also hurts the user."),
+        .effect = EFFECT_RECOIL,
         .power = 120,
         .type = TYPE_SHADOW,
-        .accuracy = 80,
+        .accuracy = 60,
         .pp = 5,
         .target = TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
+        .argument = { .recoilPercentage = 33 },
         .makesContact = TRUE,
-        .recoil = 33, // approx 1/3
         .battleAnimScript = gBattleAnimMove_DoubleEdge,
     },
 
@@ -23808,15 +23810,20 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Shadow Half"),
         .description = COMPOUND_STRING("Cuts the foe's HP by half."),
-        .effect = EFFECT_SUPER_FANG, // closest existing
+        .effect = EFFECT_FIXED_PERCENT_DAMAGE, // closest existing
         .power = 1,
         .type = TYPE_SHADOW,
-        .accuracy = 90,
+        .accuracy = 100,
         .pp = 10,
-        .target = TARGET_SELECTED,
+        .target = TARGET_FOES_AND_ALLY,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .battleAnimScript = gBattleAnimMove_SuperFang,
+        .argument = { .damagePercentage = 50 },
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_RECHARGE,
+            .self = TRUE,
+        }),
     },
 
     [MOVE_SHADOW_SKY] =
@@ -23858,60 +23865,81 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SHADOW_MIST] =
     {
         .name = COMPOUND_STRING("Shadow Mist"),
-        .description = COMPOUND_STRING("Lowers the evasion of\nall foes."),
-        .effect = EFFECT_EVASION_DOWN_HIT, // approximate
+        .description = COMPOUND_STRING(
+            "A shadowy aura sharply\n"
+            "cuts the foe's evasiveness."),
+        .effect = EFFECT_STAT_CHANGE,
         .power = 0,
         .type = TYPE_SHADOW,
         .accuracy = 100,
-        .pp = 20,
+        .pp = 10,
         .target = TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
+        .magicCoatAffected = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = STAT_CHANGE_EFFECT_MINUS,
+            .evasion = 2,
+        }),
         .battleAnimScript = gBattleAnimMove_SweetScent,
     },
 
     [MOVE_SHADOW_PANIC] =
     {
         .name = COMPOUND_STRING("Shadow Panic"),
-        .description = COMPOUND_STRING("Confuses all foes."),
+        .description = COMPOUND_STRING(
+            "A shadowy aura confuses\n"
+            "the opposing Pokémon."),
         .effect = EFFECT_CONFUSE,
         .power = 0,
         .type = TYPE_SHADOW,
-        .accuracy = 80,
-        .pp = 15,
+        .accuracy = 60,
+        .pp = 10,
         .target = TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
+        .magicCoatAffected = TRUE,
         .battleAnimScript = gBattleAnimMove_ConfuseRay,
     },
 
     [MOVE_SHADOW_DOWN] =
     {
         .name = COMPOUND_STRING("Shadow Down"),
-        .description = COMPOUND_STRING("Harshly lowers the Defense\nof all foes."),
-        .effect = EFFECT_DEFENSE_DOWN_2,
+        .description = COMPOUND_STRING(
+            "A shadowy aura sharply\n"
+            "cuts the foe's Defense."),
+        .effect = EFFECT_STAT_CHANGE,
         .power = 0,
         .type = TYPE_SHADOW,
-        .accuracy = 90,
-        .pp = 20,
+        .accuracy = 100,
+        .pp = 10,
         .target = TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
+        .magicCoatAffected = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = STAT_CHANGE_EFFECT_MINUS,
+            .defense = 2,
+        }),
         .battleAnimScript = gBattleAnimMove_Screech,
     },
 
     [MOVE_SHADOW_HOLD] =
     {
         .name = COMPOUND_STRING("Shadow Hold"),
-        .description = COMPOUND_STRING("Prevents the foe from\nescaping."),
+        .description = COMPOUND_STRING(
+            "A shadowy aura prevents\n"
+            "the foe from escaping."),
         .effect = EFFECT_MEAN_LOOK,
         .power = 0,
         .type = TYPE_SHADOW,
-        .accuracy = 100,
+        .accuracy = 80,
         .pp = 10,
-        .target = TARGET_SELECTED,
+        .target = TARGET_BOTH,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
+        .ignoresProtect = TRUE,
+        .magicCoatAffected = TRUE,
         .battleAnimScript = gBattleAnimMove_MeanLook,
     },
 

@@ -23935,8 +23935,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SERAPH_SONG] =
     {
         .name = COMPOUND_STRING("Seraph Song"),
-        .description = COMPOUND_STRING("A holy song that puts the\nfoe to sleep and confuses it."),
-        .effect = EFFECT_SLEEP, // will refine later for dual status
+        .description = COMPOUND_STRING(
+            "A holy song that puts the\n"
+            "foe to sleep and confuses it."),
+        .effect = EFFECT_NON_VOLATILE_STATUS,
         .power = 0,
         .type = TYPE_ANGEL,
         .accuracy = 70,
@@ -23944,8 +23946,16 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .target = TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
+        .argument = { .nonVolatileStatus = MOVE_EFFECT_SLEEP },
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_CONFUSION,
+            // sem .chance = aplica sempre (100%)
+        }),
+        .zMove = { .effect = Z_EFFECT_SPD_UP_1 },
+        .ignoresSubstitute = B_UPDATED_MOVE_FLAGS >= GEN_6,
+        .magicCoatAffected = TRUE,
         .soundMove = TRUE,
-        .battleAnimScript = gBattleAnimMove_Sing,
+        .battleAnimScript = gBattleAnimMove_Sing, // temporário
     },
 
     [MOVE_HOLY_BEAM] =

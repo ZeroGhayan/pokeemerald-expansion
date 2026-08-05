@@ -10413,6 +10413,9 @@ bool32 DoesOHKOMoveMissTarget(struct BattleCalcValues *cv)
     if (lands == CALC_ACC)
     {
         u32 odds = GetMoveAccuracy(cv->move) + (gBattleMons[cv->battlerAtk].level - gBattleMons[cv->battlerDef].level);
+        // Criogenesis: always 100 accuracy if user is Crystal type
+        if (cv->move == MOVE_CRIOGENESIS && IS_BATTLER_OF_TYPE(cv->battlerAtk, TYPE_CRYSTAL))
+            odds = 100 + (gBattleMons[cv->battlerAtk].level - gBattleMons[cv->battlerDef].level);
         if (MoveHasIncreasedAccByTenOnSameType(cv->move) && !IS_BATTLER_OF_TYPE(cv->battlerAtk, GetMoveType(cv->move)))
             odds -= 10;
         if (RandomPercentage(RNG_ACCURACY, odds) && gBattleMons[cv->battlerAtk].level >= gBattleMons[cv->battlerDef].level)

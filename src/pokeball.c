@@ -380,14 +380,26 @@ const struct PokeBallSprite gPokeBalls[POKEBALL_COUNT] =
         .itemId = ITEM_CHERISH_BALL,
     },
 
-    [BALL_GOLDEN] = { POKE_BALL_SPRITE(GFX_TAG_BEAST_BALL, gBallGfx_Beast, gBallPal_Beast),
-        .itemId = ITEM_BEAST_BALL, },
-    [BALL_MAGMA]  = { POKE_BALL_SPRITE(GFX_TAG_BEAST_BALL, gBallGfx_Beast, gBallPal_Beast),
-        .itemId = ITEM_BEAST_BALL, },
-    [BALL_AQUA]   = { POKE_BALL_SPRITE(GFX_TAG_BEAST_BALL, gBallGfx_Beast, gBallPal_Beast),
-        .itemId = ITEM_BEAST_BALL, },
-    [BALL_UMBRA]  = { POKE_BALL_SPRITE(GFX_TAG_BEAST_BALL, gBallGfx_Beast, gBallPal_Beast),
-        .itemId = ITEM_BEAST_BALL, },
+        [BALL_GOLDEN] =
+    {
+        POKE_BALL_SPRITE(GFX_TAG_PREMIER_BALL, gBallGfx_Premier, gBallPal_Premier),
+        .itemId = ITEM_GOLDEN_BALL,
+    },
+    [BALL_MAGMA] =
+    {
+        POKE_BALL_SPRITE(GFX_TAG_PREMIER_BALL, gBallGfx_Premier, gBallPal_Premier),
+        .itemId = ITEM_MAGMA_BALL,
+    },
+    [BALL_AQUA] =
+    {
+        POKE_BALL_SPRITE(GFX_TAG_PREMIER_BALL, gBallGfx_Premier, gBallPal_Premier),
+        .itemId = ITEM_AQUA_BALL,
+    },
+    [BALL_UMBRA] =
+    {
+        POKE_BALL_SPRITE(GFX_TAG_BEAST_BALL, gBallGfx_Beast, gBallPal_Beast),
+        .itemId = ITEM_UMBRA_BALL,
+    },
 };
 
 u8 DoPokeballSendOutAnimation(enum BattlerId battler, s16 pan, u8 kindOfThrow)

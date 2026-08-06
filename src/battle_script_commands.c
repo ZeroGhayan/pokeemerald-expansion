@@ -9981,6 +9981,32 @@ static void ComputeBallData(u32 wildMonBattler, u32 playerBattler, struct BallDa
         ball->multiplier = 410;
         ball->divider = 4096;
         break;
+    // New Balls
+    case BALL_GOLDEN:
+        // +15% se Aurum
+        if (IS_BATTLER_OF_TYPE(wildMonBattler, TYPE_AURUM))
+            ball->multiplier = 115;
+        break;
+    case BALL_MAGMA:
+        // +20% Fire / Ground / Rock / Dark
+        if (IS_BATTLER_ANY_TYPE(wildMonBattler, TYPE_FIRE, TYPE_GROUND, TYPE_ROCK, TYPE_DARK))
+            ball->multiplier = 120;
+        break;
+    case BALL_AQUA:
+        // +20% Water / Ice / Poison / Dark
+        if (IS_BATTLER_ANY_TYPE(wildMonBattler, TYPE_WATER, TYPE_ICE, TYPE_POISON, TYPE_DARK))
+            ball->multiplier = 120;
+        break;
+    case BALL_UMBRA:
+        // Estilo Beast Ball: forte em Shadow, fraca no resto
+        if (IS_BATTLER_OF_TYPE(wildMonBattler, TYPE_SHADOW))
+            ball->multiplier = 500; // 5.0x
+        else
+        {
+            ball->multiplier = 410;
+            ball->divider = 4096; // ~0.1x
+        }
+        break;
     default:
         break;
     }

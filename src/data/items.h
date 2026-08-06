@@ -627,6 +627,87 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_CherishBall,
     },
 
+    // Custom Balls
+    [ITEM_GOLDEN_BALL] =
+    {
+        .name = ITEM_NAME("Golden Ball"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A Ball that works\n"
+            "better on Aurum\n"
+            "Pokémon."),
+        .pocket = POCKET_POKE_BALLS, // Forces: acesso via Crystal Ball; pocket pode mudar depois
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .secondaryId = BALL_GOLDEN,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
+    },
+
+    [ITEM_MAGMA_BALL] =
+    {
+        .name = ITEM_NAME("Magma Ball"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Team Magma Ball\n"
+            "designed for Fire, Ground,\n"
+            "Rock and Dark types."),
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .secondaryId = BALL_MAGMA,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
+    },
+
+    [ITEM_AQUA_BALL] =
+    {
+        .name = ITEM_NAME("Aqua Ball"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Team Aqua Ball\n"
+            "designed for Water, Ice,\n"
+            "Poison and Dark types."),
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .secondaryId = BALL_AQUA,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
+    },
+
+    [ITEM_UMBRA_BALL] =
+    {
+        .name = ITEM_NAME("Umbra Ball"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A Ball designed for\n"
+            "Shadow Pokémon. Poor\n"
+            "on other Pokémon."),
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .secondaryId = BALL_UMBRA,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
+    },
+
+    [ITEM_CRYSTAL_BALL] =
+    {
+        .name = ITEM_NAME("Crystal Ball"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A mysterious ball that\n"
+            "holds other Poké Balls\n"
+            "for battle use."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // menu custom depois
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
+    },
+
 // Medicine
 
     [ITEM_POTION] =

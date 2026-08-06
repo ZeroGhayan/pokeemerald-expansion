@@ -1064,7 +1064,7 @@ enum __attribute__((packed)) Item
     ITEM_AURUM_MEMORY,
     ITEM_CRYSTAL_MEMORY,
 
-        // Custom: type boost held items
+    // Custom: type boost held items
     ITEM_SERENE_NECKLACE,
     ITEM_CURSED_NECKLACE,
     ITEM_GOLD_INGOT,
@@ -1073,6 +1073,13 @@ enum __attribute__((packed)) Item
     ITEM_MIDAS_BERRY,
     ITEM_YGGDRASIL_BERRY,
     ITEM_POSSION_BERRY,
+
+    // Custom: New Poké Balls
+    ITEM_GOLDEN_BALL,
+    ITEM_MAGMA_BALL,
+    ITEM_AQUA_BALL,
+    ITEM_UMBRA_BALL,
+    ITEM_CRYSTAL_BALL, // Key Item — menu de balls (Forces)
 
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,

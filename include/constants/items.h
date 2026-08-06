@@ -1064,6 +1064,16 @@ enum __attribute__((packed)) Item
     ITEM_AURUM_MEMORY,
     ITEM_CRYSTAL_MEMORY,
 
+        // Custom: type boost held items
+    ITEM_SERENE_NECKLACE,
+    ITEM_CURSED_NECKLACE,
+    ITEM_GOLD_INGOT,
+
+    // Custom: resist berries (new types)
+    ITEM_MIDAS_BERRY,
+    ITEM_YGGDRASIL_BERRY,
+    ITEM_POSSION_BERRY,
+
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };

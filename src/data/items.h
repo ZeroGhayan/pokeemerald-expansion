@@ -9365,6 +9365,66 @@ const struct ItemInfo gItemsInfo[] =
         .iconPalette = gItemIconPalette_MetalCoat,
     },
 
+        [ITEM_SERENE_NECKLACE] =
+    {
+        .name = ITEM_NAME("Serene Necklace"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "raises the power of\n"
+            "Angel-type moves."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_ANGEL,
+        .flingPower = 30,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
+    },
+
+    [ITEM_CURSED_NECKLACE] =
+    {
+        .name = ITEM_NAME("Cursed Necklace"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "raises the power of\n"
+            "Demon-type moves."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_DEMON,
+        .flingPower = 30,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
+    },
+
+    [ITEM_GOLD_INGOT] =
+    {
+        .name = ITEM_NAME("Gold Ingot"),
+        .price = 1000,
+        .holdEffect = HOLD_EFFECT_TYPE_POWER,
+        .holdEffectParam = TYPE_BOOST_PARAM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "raises the power of\n"
+            "Aurum-type moves."),
+        .pocket = POCKET_ITEMS,
+        .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = TYPE_AURUM,
+        .flingPower = 30,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
+    },
+
 // Choice Items
 
     [ITEM_CHOICE_BAND] =
@@ -12044,6 +12104,63 @@ const struct ItemInfo gItemsInfo[] =
         .flingPower = 10,
         .iconPic = gItemIcon_RoseliBerry,
         .iconPalette = gItemIconPalette_RoseliBerry,
+    },
+
+        [ITEM_MIDAS_BERRY] =
+    {
+        .name = ITEM_NAME("Midas Berry"),
+        .pluralName = ITEM_PLURAL_NAME("Midas Berries"),
+        .price = 20,
+        .holdEffect = HOLD_EFFECT_RESIST_BERRY,
+        .holdEffectParam = TYPE_AURUM,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "weakens an Aurum\n"
+            "move if weak to it."),
+        .pocket = POCKET_BERRIES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
+    },
+
+    [ITEM_YGGDRASIL_BERRY] =
+    {
+        .name = ITEM_NAME("Yggdrasil Berry"),
+        .pluralName = ITEM_PLURAL_NAME("Yggdrasil Berries"),
+        .price = 20,
+        .holdEffect = HOLD_EFFECT_RESIST_BERRY,
+        .holdEffectParam = TYPE_ANGEL,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "weakens an Angel\n"
+            "move if weak to it."),
+        .pocket = POCKET_BERRIES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
+    },
+
+    [ITEM_POSSION_BERRY] =
+    {
+        .name = ITEM_NAME("Possion Berry"),
+        .pluralName = ITEM_PLURAL_NAME("Possion Berries"),
+        .price = 20,
+        .holdEffect = HOLD_EFFECT_RESIST_BERRY,
+        .holdEffectParam = TYPE_DEMON,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "weakens a Demon\n"
+            "move if weak to it."),
+        .pocket = POCKET_BERRIES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
     },
 
     [ITEM_LIECHI_BERRY] =
